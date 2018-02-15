@@ -6,8 +6,7 @@
 --                  /_/\_\_|  |_|\___/|_| |_|\__,_|\__,_|                    --
 --                                                                           --
 -------------------------------------------------------------------------------
---          written by Shotaro Fujimoto (https://github.com/ssh0)
---          repaired and modified by Ogis (https://github.com/Minda1975)
+--          written by Shotaro Fujimoto (https://github.com/ssh0)            --
 -------------------------------------------------------------------------------
 -- Import modules                                                           {{{
 -------------------------------------------------------------------------------
@@ -343,7 +342,7 @@ wsPP = xmobarPP { ppOrder           = \(ws:l:t:_)  -> [ws,l,t]
 -- myXPConfig:        XPConfig                                            {{{
 
 myXPConfig = def
-                { font              = "xft:Sans:size=10:antialias=true"
+                { font              = "xft:Iosevka Slab:size=10:antialias=true"
                 , fgColor           = colorfg
                 , bgColor           = colorNormalbg
                 , borderColor       = colorNormalbg
@@ -366,4 +365,3 @@ newMouse x = M.union (mouseBindings def x) (M.fromList (myMouse x))
 
 
 -- vim: ft=haskell
-

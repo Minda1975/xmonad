@@ -10,7 +10,7 @@ Config { font = "xft:Iosevka Slab:size=10:antialias=true"
        , overrideRedirect = False
        , border = BottomBM 0
        , borderColor = "#4e4e4e"
-       , commands = [ Run Network "enp8s0" [ "-t"       , "⇩<rx>  ⇧<tx>  "
+       , commands = [ Run Network "enp8s0" [ "-t"       , "■<rx>  □<tx>  "
                                           , "-L"       , "40"
                                           , "-H"       , "200"
                                           , "-m"       , "3"

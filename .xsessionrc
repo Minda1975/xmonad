@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Load resources
+
+xrdb -merge .Xresources
+
+export GTK_OVERLAY_SCROLLING=0
+# Fire up apps
+compton --config /home/mindaugas/.config/compton.conf -b &
+xsetroot -cursor_name left_ptr &
+/home/mindaugas/.fehbg &
+urxvtd -q -f -o &
+setxkbmap -layout "us,lt,ru" -option "grp:ctrl_shift_toggle" &
+
+if [ -x /usr/bin/nm-applet ] ; then
+   nm-applet --sm-disable &
+fi
+
+exec  xmonad

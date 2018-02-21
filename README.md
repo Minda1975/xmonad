@@ -10,3 +10,6 @@ Screenshots
 
 
 <a href="https://ibb.co/dYj5Qx"><img src="https://preview.ibb.co/dmRKkx/2018_02_20_184843_1920x1080_scrot.png" alt="2018_02_20_184843_1920x1080_scrot" border="0"></a>
+
+
+<a href="https://ibb.co/muFZ3H"><img src="https://thumb.ibb.co/muFZ3H/2018_02_21_170854_1920x1080_scrot.png" alt="2018 02 21 170854 1920x1080 scrot" border="0" /></a>

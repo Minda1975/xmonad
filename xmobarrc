@@ -1,0 +1,60 @@
+-- vim: ft=haskell
+Config { font = "xft:Fira Code:size=10:antialias=true"
+       , bgColor = "#fdf6e3" --"#1d1f21" --"#1c1c1c"
+       , fgColor = "#657b83"
+       , position = Top
+       --, position = TopSize C 100 35 -- use this if only using one monitor
+       --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 
+       , lowerOnStart = False
+       , allDesktops = True
+       , overrideRedirect = False
+       , border = BottomBM 0
+       , borderColor = "#839496"
+       , commands = [ Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
+                             , "--Low"      , "1000"       -- units: B/s
+                             , "--High"     , "5000"       -- units: B/s
+                             , "--low"      , "#8FBCBB"
+                             , "--normal"   , "#b0bdbd"
+                             , "--high"     , "#86ae86"
+                             ] 10
+                             
+                    , Run Com "sh" ["/home/mindaugas/.scripts/volume.sh"] "volume" 10
+                     
+                     
+                    , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
+                             , "--Low"      , "50"         -- units: %
+                             , "--High"     , "85"         -- units: %
+                             , "--low"      , "#7BCCB5"
+                             , "--normal"   , "#EDDA74"
+                             , "--high"     , "#C36241"
+                             ] 10
+                             
+                     , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+                             , "--Low"      , "70"        -- units: °C
+                             , "--High"     , "80"        -- units: °C
+                             , "--low"      , "#7BCCB5"
+                             , "--normal"   , "#EDDA74"
+                             , "--high"     , "#C36241"
+                             ] 50        
+
+                    , Run Memory         [ "--template" ,"Mem: <usedratio>%"
+                             , "--Low"      , "20"        -- units: %
+                             , "--High"     , "90"        -- units: %
+                             , "--low"      , "#859900"
+                             , "--normal"   , "#cb4b16"
+                             , "--high"     , "#dc322f"
+                             ] 10
+                    
+                           
+                    , Run Date "%a %m/%d %H:%M" "date" 10
+                    -- keyboard layout indicator
+                    , Run Kbd            [ ("us(dvorak)" , "<fc=#657b83>DV</fc>")
+                                         , ("us"         , "<fc=#839496>US</fc>")
+                                         ]
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %volume% ● %multicpu% ● %coretemp% ● %memory% ● %dynnetwork% ● <fc=#81A1C1>%date% ● %kbd%</fc> "
+       }
+

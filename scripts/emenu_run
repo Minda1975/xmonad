@@ -18,9 +18,9 @@ fi
 cmd=$(
     IFS=:
     if stest -dqr -n "$cache" $PATH; then
-        (tac "$hist" ; stest -flx $PATH | sort -u | tee "$cache" ) | dmenu "$@" -b -f -nb '#fdf6e3' -nf '#657b83' -sb '#859900' -sf '#cb4b16' -fn FiraCode
+        (tac "$hist" ; stest -flx $PATH | sort -u | tee "$cache" ) | dmenu "$@" -b -f -nb '#000000' -nf '#E1750F' -sb '#4E3A4F' -sf '#6272a4' -fn FiraCode
     else
-        (tac "$hist"; cat "$cache") | dmenu "$@" -b -f -nb '#fdf6e3' -nf '#657b83' -sb '#859900' -sf '#cb4b16' -fn FiraCode
+        (tac "$hist"; cat "$cache") | dmenu "$@" -b -f -nb '#000000' -nf '#E1750F' -sb '#4E3A4F' -sf '#6272a4' -fn FiraCode
     fi
     ) 
 

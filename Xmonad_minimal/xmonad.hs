@@ -12,6 +12,7 @@ import XMonad.Actions.WindowBringer
 import XMonad.Prompt.ConfirmPrompt
 import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
+import XMonad.Layout.Spacing
 
 --------------------------------------------------------------------------------
 main = do
@@ -49,7 +50,7 @@ main = do
 -- full screen layout.
 myLayouts = toggleLayouts (noBorders Full) others
   where
-    others = ResizableTall 1 (1.5/100) (3/5) [] ||| emptyBSP
+    others = spacing 5 $ ResizableTall 1 (1.5/100) (3/5) [] ||| emptyBSP
 
 --------------------------------------------------------------------------------
 -- | Customize the way 'XMonad.Prompt' looks and behaves.  It's a

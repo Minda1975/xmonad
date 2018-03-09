@@ -13,7 +13,8 @@ import XMonad.Prompt.ConfirmPrompt
 import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
 import XMonad.Layout.Spacing
-
+import XMonad.Layout.Grid
+import XMonad.Layout.CenteredMaster
 --------------------------------------------------------------------------------
 main = do
     -- Start xmonad using the main desktop configuration with a few
@@ -50,7 +51,7 @@ main = do
 -- full screen layout.
 myLayouts = toggleLayouts (noBorders Full) others
   where
-    others = spacing 5 $ ResizableTall 1 (1.5/100) (3/5) [] ||| emptyBSP
+    others = spacing 5 $ ResizableTall 1 (1.5/100) (3/5) [] ||| Grid ||| centerMaster Grid ||| emptyBSP
 
 --------------------------------------------------------------------------------
 -- | Customize the way 'XMonad.Prompt' looks and behaves.  It's a
@@ -58,8 +59,12 @@ myLayouts = toggleLayouts (noBorders Full) others
 myXPConfig = def
   { position          = Top
   , alwaysHighlight   = True
+  ,fgColor = "#d3d3d3"
+  , bgColor = "#000000"
+  , bgHLight  = "#000000"
+  , fgHLight  = "#d3d3d3"
   , promptBorderWidth = 0
-  , font              = "xft:Fira Code:size=10:antialias=true"
+  , font = "xft:Fira Code:size=10:antialias=true"
   }
 
 --------------------------------------------------------------------------------

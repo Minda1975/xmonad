@@ -8,10 +8,10 @@ All scripts are in ~/.scripts. Scripts are provided to do things like take scree
 
 Screenshots
 
-<a href="https://ibb.co/dorLSn"><img src="https://preview.ibb.co/kFOBYS/2018_03_03_164525_1920x1080.png" alt="2018_03_03_164525_1920x1080" border="0"></a>
+<a href="https://ibb.co/k954Hn"><img src="https://preview.ibb.co/fcJfq7/2018_03_12_211745_1920x1080.png" alt="2018_03_12_211745_1920x1080" border="0"></a>
 
 
-<a href="https://ibb.co/cfoW07"><img src="https://preview.ibb.co/gJaB07/2018_03_03_164512_1920x1080.png" alt="2018_03_03_164512_1920x1080" border="0"></a>
+<a href="https://ibb.co/fbDrxn"><img src="https://preview.ibb.co/g9oPHn/2018_03_12_211754_1920x1080.png" alt="2018_03_12_211754_1920x1080" border="0"></a>
 
 
 Also, i made minimall Xmonad config (without Xmobar) for those who appreciate minimalism.

@@ -46,28 +46,43 @@ xterm*rightScrollBar: false
 ! Do not scroll when there is new input e.g. tail -f /var/syslog
 xterm*scrollTtyOutput: false
 
-!! Color Floral
+!Baskerville - Count Von Count
+xterm*background:  #000000
+xterm*foreground:  #919191
 
-xterm*background:              #0d0d1b
-xterm*foreground:              #ccccce
 
+! BLACK
+xterm*color0:      #303030
+xterm*color8:      #5E5E5E
 
-xterm*color0:                  #282828
-xterm*color1:                  #ca1444
-xterm*color2:                  #789aba
-xterm*color3:                  #b3879f
-xterm*color4:                  #94469b
-xterm*color5:                  #cb6fa1
-xterm*color6:                  #fb6e93
-xterm*color7:                  #cf98c1
-xterm*color9:                  #cb515d
-xterm*color8:                  #98218e
-xterm*color10:                 #5a87b1
-xterm*color11:                 #9c61ab
-xterm*color12:                 #9a77b1
-xterm*color13:                 #f2a297
-xterm*color14:                 #f4436f
-xterm*color15:                 #ebdbb2
+! WHITE
+xterm*color7:      #C6C6C6
+xterm*color15:     #FFFFFF
+
+! RED
+xterm*color1:      #C10023
+xterm*color9:      #FF8781
+
+! YELLOW
+xterm*color3:      #B51D2C
+xterm*color11:     #FF948B
+
+! GREEN
+xterm*color2:      #A83334
+xterm*color10:     #FFA095
+
+! CYAN
+xterm*color6:      #9A413D
+xterm*color14:     #FFAAA0
+
+! BLUE
+xterm*color4:      #8C4B46
+xterm*color12:     #FEB2AA
+
+! MAGENTA
+xterm*color5:      #7D534F
+xterm*color13:     #EBBBB5
+
 
 
 
@@ -97,76 +112,30 @@ URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 3
 
-! Solarized color scheme for the X Window System
-!
-! http://ethanschoonover.com/solarized
 
 
-! Common
 
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
+!Theme Dracula
+URxvt*background: #282A36
+URxvt*foreground: #F8F8F2
+URxvt*color0:     #000000
+URxvt*color1:     #FF5555
+URxvt*color2:     #50FA7B
+URxvt*color3:     #F1FA8C
+URxvt*color4:     #BD93F9
+URxvt*color5:     #FF79C6
+URxvt*color6:     #8BE9FD
+URxvt*color7:     #BFBFBF
+URxvt*color8:     #4D4D4D
+URxvt*color9:     #FF6E67
+URxvt*color10:     #5AF78E
+URxvt*color11:     #F4F99D
+URxvt*color12:     #CAA9FA
+URxvt*color13:     #FF92D0
+URxvt*color14:     #9AEDFE
+URxvt*color15:    #E6E6E6
 
-
-! Dark
-
-! #define S_base03        #002b36
-! #define S_base02        #073642
-! #define S_base01        #586e75
-! #define S_base00        #657b83
-! #define S_base0         #839496
-! #define S_base1         #93a1a1
-! #define S_base2         #eee8d5
-! #define S_base3         #fdf6e3
-
-
-! Light
-
-#define S_base03        #fdf6e3
-#define S_base02        #eee8d5
-#define S_base01        #93a1a1
-#define S_base00        #839496
-#define S_base0         #657b83
-#define S_base1         #586e75
-#define S_base2         #073642
-#define S_base3         #002b36
-
-
-! To only apply colors to your terminal, for example, prefix
-! the color assignment statement with its name. Example:
-!
-! URxvt*background:            S_base03
-
-URxvt*background:              S_base03
-URxvt*foreground:              S_base0
-URxvt*fading:                  40
-URxvt*fadeColor:               S_base03
-URxvt*cursorColor:             S_base1
-URxvt*pointerColorBackground:  S_base01
-URxvt*pointerColorForeground:  S_base1
-
-URxvt*color0:                  S_base02
-URxvt*color1:                  S_red
-URxvt*color2:                  S_green
-URxvt*color3:                  S_yellow
-URxvt*color4:                  S_blue
-URxvt*color5:                  S_magenta
-URxvt*color6:                  S_cyan
-URxvt*color7:                  S_base2
-URxvt*color9:                  S_orange
-URxvt*color8:                  S_base03
-URxvt*color10:                 S_base01
-URxvt*color11:                 S_base00
-URxvt*color12:                 S_base0
-URxvt*color13:                 S_violet
-URxvt*color14:                 S_base1
-URxvt*color15:                 S_base3
+URxvt*cursorColor: #F8F8F2
 
 
 

@@ -46,42 +46,29 @@ xterm*rightScrollBar: false
 ! Do not scroll when there is new input e.g. tail -f /var/syslog
 xterm*scrollTtyOutput: false
 
-!Baskerville - Count Von Count
-xterm*background:  #000000
-xterm*foreground:  #919191
+! Theme: Tempus Warp
+! Description: Dark theme with a vibrant palette (WCAG AA compliant)
+! Author: Protesilaos Stavrou (https://protesilaos.com)
+xterm*background: #141a19
+xterm*foreground: #928f90
+xterm*cursorColor: #928f90
+xterm*color0: #141a19
+xterm*color1: #ff1414
+xterm*color2: #009600
+xterm*color3: #928100
+xterm*color4: #4f76ff
+xterm*color5: #dd38bc
+xterm*color6: #358aaa
+xterm*color7: #927b80
+xterm*color8: #201428
+xterm*color9: #ff5500
+xterm*color10: #3aa43a
+xterm*color11: #b38a00
+xterm*color12: #8082ff
+xterm*color13: #d159fd
+xterm*color14: #1da190
+xterm*color15: #928f90
 
-
-! BLACK
-xterm*color0:      #303030
-xterm*color8:      #5E5E5E
-
-! WHITE
-xterm*color7:      #C6C6C6
-xterm*color15:     #FFFFFF
-
-! RED
-xterm*color1:      #C10023
-xterm*color9:      #FF8781
-
-! YELLOW
-xterm*color3:      #B51D2C
-xterm*color11:     #FF948B
-
-! GREEN
-xterm*color2:      #A83334
-xterm*color10:     #FFA095
-
-! CYAN
-xterm*color6:      #9A413D
-xterm*color14:     #FFAAA0
-
-! BLUE
-xterm*color4:      #8C4B46
-xterm*color12:     #FEB2AA
-
-! MAGENTA
-xterm*color5:      #7D534F
-xterm*color13:     #EBBBB5
 
 
 
@@ -113,29 +100,32 @@ URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 3
 
 
+! Theme: Tempus Future
+! Description: Dark theme with colours inspired by concept art of outer space (WCAG AAA compliant)
+! Author: Protesilaos Stavrou (https://protesilaos.com)
+URxvt*background: #18161d
+URxvt*foreground: #a4a0ac
+URxvt*cursorColor: #a4a0ac
+URxvt*cursorColor2: #18161d
+URxvt*color0: #18161d
+URxvt*color1: #ff7780
+URxvt*color2: #68b183
+URxvt*color3: #bda014
+URxvt*color4: #54a5ff
+URxvt*color5: #da89b2
+URxvt*color6: #79a8c3
+URxvt*color7: #bd9b87
+URxvt*color8: #001b1a
+URxvt*color9: #ef873d
+URxvt*color10: #08b885
+URxvt*color11: #d39710
+URxvt*color12: #a294fe
+URxvt*color13: #ec7aca
+URxvt*color14: #4ab0b9
+URxvt*color15: #a4a0ac
 
 
-!Theme Dracula
-URxvt*background: #282A36
-URxvt*foreground: #F8F8F2
-URxvt*color0:     #000000
-URxvt*color1:     #FF5555
-URxvt*color2:     #50FA7B
-URxvt*color3:     #F1FA8C
-URxvt*color4:     #BD93F9
-URxvt*color5:     #FF79C6
-URxvt*color6:     #8BE9FD
-URxvt*color7:     #BFBFBF
-URxvt*color8:     #4D4D4D
-URxvt*color9:     #FF6E67
-URxvt*color10:     #5AF78E
-URxvt*color11:     #F4F99D
-URxvt*color12:     #CAA9FA
-URxvt*color13:     #FF92D0
-URxvt*color14:     #9AEDFE
-URxvt*color15:    #E6E6E6
 
-URxvt*cursorColor: #F8F8F2
 
 
 

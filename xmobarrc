@@ -1,7 +1,7 @@
 -- vim: ft=haskell
 Config { font = "xft:Fira Code:size=10:antialias=true"
-       , bgColor = "#000000" --"#1d1f21" --"#1c1c1c"
-       , fgColor = "#ffffff"
+       , bgColor = "#141a19" --"#1d1f21" --"#1c1c1c"
+       , fgColor = "#928f90"
        , position = Top
        --, position = TopSize C 100 35 -- use this if only using one monitor
        --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 
@@ -9,13 +9,13 @@ Config { font = "xft:Fira Code:size=10:antialias=true"
        , allDesktops = True
        , overrideRedirect = False
        , border = BottomBM 0
-       , borderColor = "#839496"
+       , borderColor = "#928f90"
        , commands = [ Run MultiCpu       [ "--template" , "<autototal>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
-                             , "--low"      , "#FFB6B0"
-                             , "--normal"   , "#CEFFAC"
-                             , "--high"     , "#FFFFCC"
+                             , "--low"      , "#3aa43a"
+                             , "--normal"   , "#ff5500"
+                             , "--high"     , "#ff1414"
                              ] 10
                              
                     , Run Com "sh" ["/home/mindaugas/.scripts/volume.sh"] "volume" 10
@@ -25,9 +25,9 @@ Config { font = "xft:Fira Code:size=10:antialias=true"
                      , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
-                             , "--low"      , "#FFB6B0"
-                             , "--normal"   , "#CEFFAC"
-                             , "--high"     , "#FFFFCC"
+                             , "--low"      , "#3aa43a"
+                             , "--normal"   , "#ff5500"
+                             , "--high"     , "#ff1414"
                              ] 50    
                              
                     , Run TopProc [] 20
@@ -37,21 +37,20 @@ Config { font = "xft:Fira Code:size=10:antialias=true"
                     , Run Memory         [ "--template" ,"Mem: <usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
-                             , "--low"      , "#FFB6B0"
-                             , "--normal"   , "#CEFFAC"
-                             , "--high"     , "#FFFFCC"
+                             , "--low"      , "#3aa43a"
+                             , "--normal"   , "#ff5500"
+                             , "--high"     , "#ff1414"
                              ] 10
                     
                            
                     , Run Date "%a %m/%d %H:%M" "date" 10
                     -- keyboard layout indicator
-                    , Run Kbd            [ ("us(dvorak)" , "<fc=#ffffff>DV</fc>")
-                                         , ("us"         , "<fc=#ffffff>US</fc>")
+                    , Run Kbd            [ ("us(dvorak)" , "<fc=#928f90>DV</fc>")
+                                         , ("us"         , "<fc=#928f90>US</fc>")
                                          ]
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %volume% ● %multicpu% ● %coretemp% ● %memory% ● %top% ● %topmem% ● <fc=#C240A1>%date% ● %kbd%</fc> "
+       , template = " %StdinReader% }{ %volume% ● %multicpu% ● %coretemp% ● %memory% ● %top% ● %topmem% ● <fc=#4f76ff>%date% ● %kbd%</fc> "
        }
-

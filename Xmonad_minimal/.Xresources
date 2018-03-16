@@ -46,25 +46,34 @@ xterm*rightScrollBar: false
 ! Do not scroll when there is new input e.g. tail -f /var/syslog
 xterm*scrollTtyOutput: false
 
-xterm*background:#000000
-xterm*foreground:#d3d3d3
+! Theme: ashes-dark 
 
-xterm*color0: #191927
-xterm*color1: #282F5E
-xterm*color2: #2B4593
-xterm*color3: #344276
-xterm*color4: #4E3A4F
-xterm*color5: #61372F
-xterm*color6: #6B484C
-xterm*color7: #744537
-xterm*color8: #905749
-xterm*color9: #94431C
-xterm*color10: #9F582A
-xterm*color11: #A38687
-xterm*color12: #E1750F
-xterm*color13: #EAAF25
-xterm*color14: #FA8E08
-xterm*color15: #FCA806
+xterm*background: #1c2023
+xterm*foreground: #c7ccd1
+xterm*cursorColor: #c7ae95
+xterm*color0: #1c2023
+xterm*color1: #c7ae95
+xterm*color2: #95c7ae
+xterm*color3: #aec795
+xterm*color4: #ae95c7
+xterm*color5: #c795ae
+xterm*color6: #95aec7
+xterm*color7: #c7ccd1
+xterm*color8: #747c84
+xterm*color9: #c7ae95
+xterm*color10: #95c7ae
+xterm*color11: #aec795
+xterm*color12: #ae95c7
+xterm*color13: #c795ae
+xterm*color14: #95aec7
+xterm*color15: #f3f4f5
+
+
+
+
+
+
+
 
 
 
@@ -97,27 +106,41 @@ URxvt.matcher.button: 3
 
 
 
-!Theme Dracula
-URxvt*background: #282A36
-URxvt*foreground: #F8F8F2
-URxvt*color0:     #000000
-URxvt*color1:     #FF5555
-URxvt*color2:     #50FA7B
-URxvt*color3:     #F1FA8C
-URxvt*color4:     #BD93F9
-URxvt*color5:     #FF79C6
-URxvt*color6:     #8BE9FD
-URxvt*color7:     #BFBFBF
-URxvt*color8:     #4D4D4D
-URxvt*color9:     #FF6E67
-URxvt*color10:     #5AF78E
-URxvt*color11:     #F4F99D
-URxvt*color12:     #CAA9FA
-URxvt*color13:     #FF92D0
-URxvt*color14:     #9AEDFE
-URxvt*color15:    #E6E6E6
+! Theme: ashes-light
 
-URxvt*cursorColor: #F8F8F2
+URxvt*background: #f3f4f5
+URxvt*foreground: #565e65
+URxvt*cursorColor: #c7ae95
+URxvt*color0: #f3f4f5
+URxvt*color1: #c7ae95
+URxvt*color2: #95c7ae
+URxvt*color3: #aec795
+URxvt*color4: #ae95c7
+URxvt*color5: #c795ae
+URxvt*color6: #95aec7
+URxvt*color7: #1c2023
+URxvt*color8: #747c84
+URxvt*color9: #c7ae95
+URxvt*color10: #95c7ae
+URxvt*color11: #aec795
+URxvt*color12: #ae95c7
+URxvt*color13: #c795ae
+URxvt*color14: #95aec7
+URxvt*color15: #1c2023
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

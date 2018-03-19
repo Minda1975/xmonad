@@ -1,4 +1,4 @@
-xterm*faceName: Fira Code
+xterm*faceName: Menlo
 xterm*faceSize: 10
 xterm*renderFont: true
 
@@ -46,7 +46,7 @@ xterm*rightScrollBar: false
 ! Do not scroll when there is new input e.g. tail -f /var/syslog
 xterm*scrollTtyOutput: false
 
-! Theme: ashes-dark 
+! Theme: Ashes Light
 
 xterm*background: #1c2023
 xterm*foreground: #c7ccd1
@@ -82,8 +82,8 @@ xterm*color15: #f3f4f5
 
 ! urxvt -------------------------------------------
 
-URxvt.font: xft:Fira Code:size=10 :antialias=true:autohint=false
-URxvt.boldFont: xft:Fira Code:Bold:size=10 :antialias=true:autohint=false
+URxvt.font: xft:Consolas:size=10 :antialias=true:autohint=false
+URxvt.boldFont: xft:Consolas:Bold:size=10 :antialias=true:autohint=false
 
 ! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
 
@@ -96,7 +96,7 @@ URxvt.scrollBar: false
 
 ! scrollback buffer lines - 65535 is max (64 is default)
 URxvt.saveLines:8192
-
+URxvt.scaleHeight: 0.9
 
 ! Clickble URLs
 URxvt.perl-ext-common: default,matcher
@@ -104,29 +104,66 @@ URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 3
 
 
+! Base16 Oxide
+! Scheme: Diki Ananta (https://github.com/dikiaap)
+
+#define base00 #212121
+#define base01 #343D46
+#define base02 #4F5B66
+#define base03 #65737E
+#define base04 #A7ADBA
+#define base05 #C0C5CE
+#define base06 #CDD3DE
+#define base07 #F3F4F5
+#define base08 #E57373
+#define base09 #F99157
+#define base0A #FAC863
+#define base0B #A6BC69
+#define base0C #5FB3B3
+#define base0D #6699CC
+#define base0E #C594C5
+#define base0F #AB7967
+
+URxvt*foreground:   base05
+#ifdef background_opacity
+URxvt*background:   [background_opacity]base00
+#else
+URxvt*background:   base00
+#endif
+URxvt*cursorColor:  base05
+
+URxvt*color0:       base00
+URxvt*color1:       base08
+URxvt*color2:       base0B
+URxvt*color3:       base0A
+URxvt*color4:       base0D
+URxvt*color5:       base0E
+URxvt*color6:       base0C
+URxvt*color7:       base05
+
+URxvt*color8:       base03
+URxvt*color9:       base08
+URxvt*color10:      base0B
+URxvt*color11:      base0A
+URxvt*color12:      base0D
+URxvt*color13:      base0E
+URxvt*color14:      base0C
+URxvt*color15:      base07
+
+URxvt*color16:      base09
+URxvt*color17:      base0F
+URxvt*color18:      base01
+URxvt*color19:      base02
+URxvt*color20:      base04
+URxvt*color21:      base06
 
 
-! Theme: ashes-light
 
-URxvt*background: #f3f4f5
-URxvt*foreground: #565e65
-URxvt*cursorColor: #c7ae95
-URxvt*color0: #f3f4f5
-URxvt*color1: #c7ae95
-URxvt*color2: #95c7ae
-URxvt*color3: #aec795
-URxvt*color4: #ae95c7
-URxvt*color5: #c795ae
-URxvt*color6: #95aec7
-URxvt*color7: #1c2023
-URxvt*color8: #747c84
-URxvt*color9: #c7ae95
-URxvt*color10: #95c7ae
-URxvt*color11: #aec795
-URxvt*color12: #ae95c7
-URxvt*color13: #c795ae
-URxvt*color14: #95aec7
-URxvt*color15: #1c2023
+
+
+
+
+
 
 
 

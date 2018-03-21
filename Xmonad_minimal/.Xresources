@@ -1,6 +1,8 @@
-xterm*faceName: Menlo
-xterm*faceSize: 10
-xterm*renderFont: true
+!!! Fonts
+xterm*font: -*-terminus-*-*-*-*-*-*-*-*-*-*-iso10646-*
+xterm*boldFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-iso10646-*
+xterm*italicFont: -*-terminus-*-*-*-*-*-*-*-*-*-*-iso10646-*
+
 
 
 ! VT Font Menu: Unreadable
@@ -40,34 +42,35 @@ xterm*trimSelection: true
 ! Lines of output that you can scroll back over
 xterm*saveLines: 4096
 ! Turn the scrollbar on, and put it on the right
-xterm*scrollBar: false
-xterm*rightScrollBar: false
+xterm*scrollBar: true
+xterm*rightScrollBar: true
 
 ! Do not scroll when there is new input e.g. tail -f /var/syslog
 xterm*scrollTtyOutput: false
 
-! Theme: Ashes Light
-
-xterm*background: #1c2023
-xterm*foreground: #c7ccd1
-xterm*cursorColor: #c7ae95
-xterm*color0: #1c2023
-xterm*color1: #c7ae95
-xterm*color2: #95c7ae
-xterm*color3: #aec795
-xterm*color4: #ae95c7
-xterm*color5: #c795ae
-xterm*color6: #95aec7
-xterm*color7: #c7ccd1
-xterm*color8: #747c84
-xterm*color9: #c7ae95
-xterm*color10: #95c7ae
-xterm*color11: #aec795
-xterm*color12: #ae95c7
-xterm*color13: #c795ae
-xterm*color14: #95aec7
-xterm*color15: #f3f4f5
-
+! Colours
+xterm*foreground: rgb:a8/a8/a8
+xterm*background: rgb:00/00/00
+xterm*color0: rgb:00/00/00
+xterm*color1: rgb:a8/00/00
+xterm*color2: rgb:00/a8/00
+xterm*color3: rgb:a8/54/00
+xterm*color4: rgb:00/00/a8
+xterm*color5: rgb:a8/00/a8
+xterm*color6: rgb:00/a8/a8
+xterm*color7: rgb:a8/a8/a8
+xterm*color8: rgb:54/54/54
+xterm*color9: rgb:fc/54/54
+xterm*color10: rgb:54/fc/54
+xterm*color11: rgb:fc/fc/54
+xterm*color12: rgb:54/54/fc
+xterm*color13: rgb:fc/54/fc
+xterm*color14: rgb:54/fc/fc
+xterm*color15: rgb:fc/fc/fc
+xterm*pointerColor: white
+xterm*pointerColorBackground: black
+xterm*cursorColor: yellow
+xterm*cursorBlink: true
 
 
 
@@ -82,8 +85,8 @@ xterm*color15: #f3f4f5
 
 ! urxvt -------------------------------------------
 
-URxvt.font: xft:Consolas:size=10 :antialias=true:autohint=false
-URxvt.boldFont: xft:Consolas:Bold:size=10 :antialias=true:autohint=false
+URxvt.font: xft:Whois:size=10 :antialias=true:autohint=false
+URxvt.boldFont: xft:Whois:Bold:size=10 :antialias=true:autohint=false
 
 ! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
 

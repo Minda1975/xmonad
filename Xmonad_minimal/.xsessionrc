@@ -7,7 +7,7 @@ xrdb -merge .Xresources
 export GTK_OVERLAY_SCROLLING=0
 # Fire up apps
 xsetroot -cursor_name left_ptr &
-xsetroot -solid "#00a800" &
+xsetroot -mod 5 12 -fg "#2D0002" -bg "#410016" &
 setxkbmap -layout "us,lt,ru" -option "grp:ctrl_shift_toggle" &
 
 if [ -x /usr/bin/nm-applet ] ; then

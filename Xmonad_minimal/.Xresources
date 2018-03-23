@@ -48,30 +48,47 @@ xterm*rightScrollBar: true
 ! Do not scroll when there is new input e.g. tail -f /var/syslog
 xterm*scrollTtyOutput: false
 
-! Colours
-xterm*foreground: rgb:a8/a8/a8
-xterm*background: rgb:00/00/00
-xterm*color0: rgb:00/00/00
-xterm*color1: rgb:a8/00/00
-xterm*color2: rgb:00/a8/00
-xterm*color3: rgb:a8/54/00
-xterm*color4: rgb:00/00/a8
-xterm*color5: rgb:a8/00/a8
-xterm*color6: rgb:00/a8/a8
-xterm*color7: rgb:a8/a8/a8
-xterm*color8: rgb:54/54/54
-xterm*color9: rgb:fc/54/54
-xterm*color10: rgb:54/fc/54
-xterm*color11: rgb:fc/fc/54
-xterm*color12: rgb:54/54/fc
-xterm*color13: rgb:fc/54/fc
-xterm*color14: rgb:54/fc/fc
-xterm*color15: rgb:fc/fc/fc
-xterm*pointerColor: white
-xterm*pointerColorBackground: black
-xterm*cursorColor: yellow
-xterm*cursorBlink: true
+! -----------------------------------------------------------------------------
+! File: gruvbox-dark.xresources
+! Description: Retro groove colorscheme generalized
+! Author: morhetz <morhetz@gmail.com>
+! Source: https://github.com/morhetz/gruvbox-generalized
+! Last Modified: 6 Sep 2014
+! -----------------------------------------------------------------------------
 
+! hard contrast: *background: #1d2021
+xterm*background: #282828
+! soft contrast: *background: #32302f
+xterm*foreground: #ebdbb2
+! Black + DarkGrey
+xterm*color0:  #282828
+xterm*color8:  #928374
+! DarkRed + Red
+xterm*color1:  #cc241d
+xterm*color9:  #fb4934
+! DarkGreen + Green
+xterm*color2:  #98971a
+xterm*color10: #b8bb26
+! DarkYellow + Yellow
+xterm*color3:  #d79921
+xterm*color11: #fabd2f
+! DarkBlue + Blue
+xterm*color4:  #458588
+xterm*color12: #83a598
+! DarkMagenta + Magenta
+xterm*color5:  #b16286
+xterm*color13: #d3869b
+! DarkCyan + Cyan
+xterm*color6:  #689d6a
+xterm*color14: #8ec07c
+! LightGrey + White
+xterm*color7:  #a89984
+xterm*color15: #ebdbb2
+
+xterm*pointerColor: #458588
+xterm*pointerColorBackground: #282828
+xterm*cursorColor: #ebdbb2
+xterm*cursorBlink: true
 
 
 
@@ -107,58 +124,44 @@ URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 3
 
 
-! Base16 Oxide
-! Scheme: Diki Ananta (https://github.com/dikiaap)
+! -----------------------------------------------------------------------------
+! File: gruvbox-dark.xresources
+! Description: Retro groove colorscheme generalized
+! Author: morhetz <morhetz@gmail.com>
+! Source: https://github.com/morhetz/gruvbox-generalized
+! Last Modified: 6 Sep 2014
+! -----------------------------------------------------------------------------
 
-#define base00 #212121
-#define base01 #343D46
-#define base02 #4F5B66
-#define base03 #65737E
-#define base04 #A7ADBA
-#define base05 #C0C5CE
-#define base06 #CDD3DE
-#define base07 #F3F4F5
-#define base08 #E57373
-#define base09 #F99157
-#define base0A #FAC863
-#define base0B #A6BC69
-#define base0C #5FB3B3
-#define base0D #6699CC
-#define base0E #C594C5
-#define base0F #AB7967
+! hard contrast: *background: #1d2021
+URxvt*background: #282828
+! soft contrast: *background: #32302f
+URxvt*foreground: #ebdbb2
+! Black + DarkGrey
+URxvt*color0:  #282828
+URxvt*color8:  #928374
+! DarkRed + Red
+URxvt*color1:  #cc241d
+URxvt*color9:  #fb4934
+! DarkGreen + Green
+URxvt*color2:  #98971a
+URxvt*color10: #b8bb26
+! DarkYellow + Yellow
+URxvt*color3:  #d79921
+URxvt*color11: #fabd2f
+! DarkBlue + Blue
+URxvt*color4:  #458588
+URxvt*color12: #83a598
+! DarkMagenta + Magenta
+URxvt*color5:  #b16286
+URxvt*color13: #d3869b
+! DarkCyan + Cyan
+URxvt*color6:  #689d6a
+URxvt*color14: #8ec07c
+! LightGrey + White
+URxvt*color7:  #a89984
+URxvt*color15: #ebdbb2
 
-URxvt*foreground:   base05
-#ifdef background_opacity
-URxvt*background:   [background_opacity]base00
-#else
-URxvt*background:   base00
-#endif
-URxvt*cursorColor:  base05
 
-URxvt*color0:       base00
-URxvt*color1:       base08
-URxvt*color2:       base0B
-URxvt*color3:       base0A
-URxvt*color4:       base0D
-URxvt*color5:       base0E
-URxvt*color6:       base0C
-URxvt*color7:       base05
-
-URxvt*color8:       base03
-URxvt*color9:       base08
-URxvt*color10:      base0B
-URxvt*color11:      base0A
-URxvt*color12:      base0D
-URxvt*color13:      base0E
-URxvt*color14:      base0C
-URxvt*color15:      base07
-
-URxvt*color16:      base09
-URxvt*color17:      base0F
-URxvt*color18:      base01
-URxvt*color19:      base02
-URxvt*color20:      base04
-URxvt*color21:      base06
 
 
 

@@ -7,20 +7,20 @@ import XMonad.Layout.BinarySpacePartition (emptyBSP)
 import XMonad.Layout.NoBorders (noBorders)
 import XMonad.Layout.ResizableTile (ResizableTall(..))
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
+import XMonad.Layout.OneBig
 import XMonad.Prompt
 import XMonad.Actions.WindowBringer
 import XMonad.Prompt.ConfirmPrompt
 import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
-import XMonad.Layout.Spacing
-import XMonad.Layout.Grid
-import XMonad.Layout.CenteredMaster
+
 --------------------------------------------------------------------------------
 main = do
     -- Start xmonad using the main desktop configuration with a few
   -- simple overrides:
   xmonad $ desktopConfig
     { modMask    = mod4Mask -- Use the "Win" key for the mod key
+    , terminal   = "urxvtc"
     , manageHook = myManageHook <+> manageHook desktopConfig
     , layoutHook = desktopLayoutModifiers $ myLayouts
     , logHook    = dynamicLogString def >>= xmonadPropLog
@@ -29,7 +29,7 @@ main = do
     `additionalKeysP` -- Add some extra key bindings:
       [ ("M-S-q",   confirmPrompt myXPConfig "exit" (io exitSuccess))
       , ("M-S-p",     shellPrompt myXPConfig)
-      , ("M-S-f", spawn "pcmanfm")
+      , ("M-S-f", spawn "urxvtc -e /usr/bin/mc")
       , ("M-S-w", spawn "firefox")
       , ("M-p", spawn "/home/mindaugas/.scripts/emenu_run")
       , ("M-r", spawn "/home/mindaugas/.scripts/shutdown.sh")
@@ -51,7 +51,7 @@ main = do
 -- full screen layout.
 myLayouts = toggleLayouts (noBorders Full) others
   where
-    others = spacing 5 $ ResizableTall 1 (1.5/100) (3/5) [] ||| Grid ||| centerMaster Grid ||| emptyBSP
+    others = ResizableTall 1 (1.5/100) (3/5) [] ||| OneBig (3/4) (3/4) ||| emptyBSP
 
 --------------------------------------------------------------------------------
 -- | Customize the way 'XMonad.Prompt' looks and behaves.  It's a
@@ -80,7 +80,6 @@ myManageHook = composeOne
   , className =? "mpv"    -?> doFloat
   , className =? "feh"    -?> doCenterFloat
   , className =? "Gmpc"    -?> doCenterFloat
-  , className =? "Audacious"    -?> doCenterFloat
   , isDialog              -?> doCenterFloat
 
     -- Move transient windows to their parent:

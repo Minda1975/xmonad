@@ -13,6 +13,5 @@ alias j='jobs -l'
 alias which='type -a'
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
-alias music='ncmpcpp'
-alias slurm='slurm -i enp8s0'
+
 

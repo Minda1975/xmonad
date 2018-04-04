@@ -1,0 +1,66 @@
+-- vim: ft=haskell
+Config { font = "xft:SourceCodePro:size=8"
+       , bgColor = "#1b1b1b" --"#1d1f21" --"#1c1c1c"
+       , fgColor = "#737373"
+       , position = Top
+       --, position = TopSize C 100 35 -- use this if only using one monitor
+       --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 
+       , lowerOnStart = False
+       , allDesktops = True
+       , overrideRedirect = False
+       , border = BottomBM 0
+       , borderColor = "#4e4e4e"
+       , commands = [ Run Network "wlp58s0" [ "-t"       , "⇩<rx>  ⇧<tx>  "
+                                          , "-L"       , "40"
+                                          , "-H"       , "200"
+                                          , "-m"       , "3"
+                                          , "--normal" , "#b0bdbd"
+                                          , "--high"   , "#86ae86"
+                                          ] 10
+                    , Run Wireless "wlp58s0" [ "-t" , "-<essid>- "
+                                          , "-L"       , "40"
+                                          , "-H"       , "200"
+                                          , "-m"       , "3"
+                                          , "--normal" , "#b0bdbd"
+                                          , "--high"   , "86ae86"
+                                          ] 10                      
+                    , Run MultiCpu        [ "-t"       , "■ <total0>.<total1>.<total2>.<total3>  "
+                                          , "-L"       , "40"
+                                          , "-H"       , "85"
+                                          , "-m"       , "2"
+                                          , "--normal" , "#b0bdbd"
+                                          , "--high"   , "#ae8686"
+                                          ] 10
+
+                    , Run Memory          [ "-t"       , "□ <usedratio>%  "
+                                          , "-L"       , "40"
+                                          , "-H"       , "90"
+                                          , "-m"       , "2"
+                                          , "--normal" , "#b0bdbd"
+                                          , "--high"   , "#ae8686"
+                                          ] 10
+                    , Run BatteryP        ["BAT0"]
+                                          [ "-t"       , "⌇ <acstatus>  "
+                                          , "-L"       , "20"
+                                          , "-H"       , "80"
+                                          , "--low"    , "#ae8686"
+                                          , "--normal" , "#b0bdbd"
+                                          , "--"
+                                                , "-o" , "<left>% (<timeleft>)"
+                                                , "-O" , "Charging <left>%"
+                                                , "-i" , "<left>%"
+                                          ] 50
+                           -- cpu core temperature monitor
+        			, Run CoreTemp       [ "--template" , "± <core0>° "
+                    			         , "--Low"      , "55"        -- units: °C
+                             			 , "--High"     , "70"        -- units: °C
+                             			 , "--normal"   , "#b0bdbd"
+                             			 , "--high"     , "#ae8686"
+                             			 ] 50 
+                    , Run Date "%a %m/%d %H:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %multicpu%%coretemp%%memory%%wlp58s0%%wlp58s0wi%%battery%<fc=#52ad91>%date%</fc> "
+       }

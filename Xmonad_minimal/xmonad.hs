@@ -1,87 +1,62 @@
-import System.Exit
 import XMonad
-import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Layout.BinarySpacePartition (emptyBSP)
-import XMonad.Layout.NoBorders (noBorders)
-import XMonad.Layout.ResizableTile (ResizableTall(..))
-import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
-import XMonad.Layout.OneBig
-import XMonad.Prompt
-import XMonad.Actions.WindowBringer
-import XMonad.Prompt.ConfirmPrompt
-import XMonad.Prompt.Shell
-import XMonad.Util.EZConfig
-
---------------------------------------------------------------------------------
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Gaps
+import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.EZConfig(additionalKeys)
+import System.IO
+import XMonad.Hooks.SetWMName
+ 
 main = do
-    -- Start xmonad using the main desktop configuration with a few
-  -- simple overrides:
-  xmonad $ desktopConfig
-    { modMask    = mod4Mask -- Use the "Win" key for the mod key
-    , terminal   = "urxvtc"
-    , manageHook = myManageHook <+> manageHook desktopConfig
-    , layoutHook = desktopLayoutModifiers $ myLayouts
-    , logHook    = dynamicLogString def >>= xmonadPropLog
-    }
+    xmproc <- spawnPipe "xmobar"
+    xmonad $ def
+      { modMask            = mod4Mask
+      , manageHook         = manageDocks <+> manageHook def
+      , workspaces         = myworkspaces
+      , terminal           = "urxvtc"
+      , borderWidth        = 1
+      , normalBorderColor  = "#dddddd"
+      , focusedBorderColor = "#00dd00"
+      , layoutHook         = avoidStruts  $ smartBorders $ layoutHook def
+      -- this must be in this order, docksEventHook must be last
+      , handleEventHook    = handleEventHook def <+> docksEventHook
+      , logHook            = dynamicLogWithPP xmobarPP
+          { ppOutput          = hPutStrLn xmproc
+          , ppTitle           = xmobarColor "green"  "" . shorten 50
+          , ppHiddenNoWindows = xmobarColor "#25383C" ""
+          }
+      , startupHook        = setWMName "LG3D"
+      } `additionalKeys`
+      [ ((mod4Mask, xK_b), sendMessage ToggleStruts) 
+      , ((mod4Mask, xK_p), spawn "/home/mindaugas/.scripts/emenu_run")
+      , ((mod4Mask, xK_r), spawn "/home/mindaugas/.scripts/shutdown.sh")
+      , ((mod4Mask, xK_x), spawn "/home/mindaugas/.scripts/mpdmenu")
+      , ((mod4Mask, xK_F1), spawn "/home/mindaugas/.scripts/dmenu_fm")
+      , ((mod4Mask, xK_w), spawn "/home/mindaugas/.scripts/screenshot")
+      , ((0, xK_Print), spawn "/home/mindaugas/.scripts/select-screenshot")
+      , ((mod4Mask .|. shiftMask, xK_w), spawn "firefox")
+      , ((mod4Mask .|. shiftMask, xK_f), spawn "urxvtc -e /usr/bin/mc") ]
 
-    `additionalKeysP` -- Add some extra key bindings:
-      [ ("M-S-q",   confirmPrompt myXPConfig "exit" (io exitSuccess))
-      , ("M-S-p",     shellPrompt myXPConfig)
-      , ("M-S-f", spawn "urxvtc -e /usr/bin/mc")
-      , ("M-S-w", spawn "firefox")
-      , ("M-p", spawn "/home/mindaugas/.scripts/emenu_run")
-      , ("M-r", spawn "/home/mindaugas/.scripts/shutdown.sh")
-      , ("M-x", spawn "/home/mindaugas/.scripts/mpdmenu")
-      , ("C-<Tab>", spawn "/home/mindaugas/.scripts/dmenu_fm")
-      , ("M-w", spawn "/home/mindaugas/.scripts/screenshot")
-      , ("<Print>", spawn "/home/mindaugas/.scripts/select-screenshot")
-      , ("M-<Esc>", sendMessage (Toggle "Full"))
-      , ("M-S-g", gotoMenu)
-      , ("M-S-b", bringMenu)
-      ]
+myPP = xmobarPP { ppOutput          = putStrLn
+                , ppCurrent         = xmobarColor "#336433" "" . wrap "[" "]"
+                --, ppHiddenNoWindows = xmobarColor "#25383C" ""
+                , ppTitle           = xmobarColor "darkgreen"  "" . shorten 20
+                , ppLayout          = shorten 6
+                --, ppVisible         = wrap "(" ")"
+                , ppUrgent          = xmobarColor "red" "yellow"
+                }
+                
+myworkspaces = [ "code"
+               , "web"
+               , "media"
+               , "sys"
+               , "random"
+               , "var"
+               , "docs"
+               , "music"
+               , "root"
+               ]
 
---------------------------------------------------------------------------------
--- | Customize layouts.
---
--- This layout configuration uses two primary layouts, 'ResizableTall'
--- and 'BinarySpacePartition'.  You can also use the 'M-<Esc>' key
--- binding defined above to toggle between the current layout and a
--- full screen layout.
-myLayouts = toggleLayouts (noBorders Full) others
-  where
-    others = ResizableTall 1 (1.5/100) (3/5) [] ||| OneBig (3/4) (3/4) ||| emptyBSP
-
---------------------------------------------------------------------------------
--- | Customize the way 'XMonad.Prompt' looks and behaves.  It's a
--- great replacement for dzen.
-myXPConfig = def
-  { position          = Top
-  , alwaysHighlight   = True
-  ,fgColor = "#d3d3d3"
-  , bgColor = "#000000"
-  , bgHLight  = "#000000"
-  , fgHLight  = "#d3d3d3"
-  , promptBorderWidth = 0
-  , font = "xft:Fira Code:size=10:antialias=true"
-  }
-
---------------------------------------------------------------------------------
--- | Manipulate windows as they are created.  The list given to
--- @composeOne@ is processed from top to bottom.  The first matching
--- rule wins.
---
--- Use the `xprop' tool to get the info you need for these matches.
--- For className, use the second value that xprop gives you.
-myManageHook = composeOne
-  [ className =? "Gimp" -?> doFloat
-  , className =? "SMPlayer"  -?> doFloat
-  , className =? "mpv"    -?> doFloat
-  , className =? "feh"    -?> doCenterFloat
-  , className =? "Gmpc"    -?> doCenterFloat
-  , isDialog              -?> doCenterFloat
-
-    -- Move transient windows to their parent:
-  , transience
-  ]
+             

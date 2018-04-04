@@ -16,7 +16,7 @@ Screenshots
 
 <a href="https://ibb.co/mKKx5H"><img src="https://preview.ibb.co/n6cjkH/2018_03_13_162203_1920x1080.png" alt="2018_03_13_162203_1920x1080" border="0"></a>
 
-Also, i made minimall Xmonad config (without Xmobar) for those who appreciate minimalism.
+Also, i made minimall Xmonad config for those who appreciate minimalism.
 
 Screenshots
 

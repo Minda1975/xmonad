@@ -20,10 +20,7 @@ Also, i made minimall Xmonad config (without Xmobar) for those who appreciate mi
 
 Screenshots
 
-<a href="https://ibb.co/iPSzdS"><img src="https://preview.ibb.co/kCTSXn/2018_03_09_172254_1920x1080.png" alt="2018_03_09_172254_1920x1080" border="0"></a>
+<a href="https://ibb.co/bNuqux"><img src="https://preview.ibb.co/hmyGZx/2018_04_04_215922_1920x1080.png" alt="2018_04_04_215922_1920x1080" border="0"></a>
 
 
-<a href="https://ibb.co/k54UdS"><img src="https://preview.ibb.co/i9L2yS/2018_03_09_211721_1920x1080.png" alt="2018_03_09_211721_1920x1080" border="0"></a>
-
-
-<a href="https://ibb.co/dRTpdS"><img src="https://preview.ibb.co/fz3NyS/2018_03_09_211731_1920x1080.png" alt="2018_03_09_211731_1920x1080" border="0"></a>
+<a href="https://ibb.co/cO58gc"><img src="https://preview.ibb.co/dQpqux/2018_04_04_215937_1920x1080.png" alt="2018_04_04_215937_1920x1080" border="0"></a>

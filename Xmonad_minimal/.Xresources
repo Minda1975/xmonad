@@ -48,47 +48,44 @@ xterm*rightScrollBar: true
 ! Do not scroll when there is new input e.g. tail -f /var/syslog
 xterm*scrollTtyOutput: false
 
-! -----------------------------------------------------------------------------
-! File: gruvbox-dark.xresources
-! Description: Retro groove colorscheme generalized
-! Author: morhetz <morhetz@gmail.com>
-! Source: https://github.com/morhetz/gruvbox-generalized
-! Last Modified: 6 Sep 2014
-! -----------------------------------------------------------------------------
+! special
+xterm*.foreground:   #e0f2ec
+xterm*.background:   #11292e
+xterm*.cursorColor:  #e0f2ec
 
-! hard contrast: *background: #1d2021
-xterm*background: #282828
-! soft contrast: *background: #32302f
-xterm*foreground: #ebdbb2
-! Black + DarkGrey
-xterm*color0:  #282828
-xterm*color8:  #928374
-! DarkRed + Red
-xterm*color1:  #cc241d
-xterm*color9:  #fb4934
-! DarkGreen + Green
-xterm*color2:  #98971a
-xterm*color10: #b8bb26
-! DarkYellow + Yellow
-xterm*color3:  #d79921
-xterm*color11: #fabd2f
-! DarkBlue + Blue
-xterm*color4:  #458588
-xterm*color12: #83a598
-! DarkMagenta + Magenta
-xterm*color5:  #b16286
-xterm*color13: #d3869b
-! DarkCyan + Cyan
-xterm*color6:  #689d6a
-xterm*color14: #8ec07c
-! LightGrey + White
-xterm*color7:  #a89984
-xterm*color15: #ebdbb2
+! black
+xterm*.color0:       #0e1f22
+xterm*.color8:       #1c4b4e
 
-xterm*pointerColor: #458588
-xterm*pointerColorBackground: #282828
-xterm*cursorColor: #ebdbb2
-xterm*cursorBlink: true
+! red
+xterm*.color1:       #a85659
+xterm*.color9:       #eb8995
+
+! green
+xterm*.color2:       #668e8c
+xterm*.color10:      #82aea9
+
+! yellow
+xterm*.color3:       #c3b6a4
+xterm*.color11:      #e1d9ce
+
+! blue
+xterm*.color4:       #326d78
+xterm*.color12:      #a7d2cd
+
+! magenta (or orange)
+xterm*.color5:       #433c32
+xterm*.color13:      #aa9576
+
+! cyan
+xterm*.color6:       #386e74
+xterm*.color14:      #90c0bd
+
+! white
+xterm*.color7:       #e0f2ec
+xterm*.color15:      #f0f8f3
+
+
 
 
 
@@ -102,8 +99,8 @@ xterm*cursorBlink: true
 
 ! urxvt -------------------------------------------
 
-URxvt.font: xft:Whois:size=10 :antialias=true:autohint=false
-URxvt.boldFont: xft:Whois:Bold:size=10 :antialias=true:autohint=false
+URxvt.font: xft:SourceCodePro:size=10 :antialias=true:autohint=false
+URxvt.boldFont: xft:SourceCodePro:Bold:size=10 :antialias=true:autohint=false
 
 ! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
 
@@ -117,6 +114,7 @@ URxvt.scrollBar: false
 ! scrollback buffer lines - 65535 is max (64 is default)
 URxvt.saveLines:8192
 URxvt.scaleHeight: 0.9
+URxvt.letterSpace: -1
 
 ! Clickble URLs
 URxvt.perl-ext-common: default,matcher
@@ -124,42 +122,44 @@ URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 3
 
 
-! -----------------------------------------------------------------------------
-! File: gruvbox-dark.xresources
-! Description: Retro groove colorscheme generalized
-! Author: morhetz <morhetz@gmail.com>
-! Source: https://github.com/morhetz/gruvbox-generalized
-! Last Modified: 6 Sep 2014
-! -----------------------------------------------------------------------------
 
-! hard contrast: *background: #1d2021
-URxvt*background: #282828
-! soft contrast: *background: #32302f
-URxvt*foreground: #ebdbb2
-! Black + DarkGrey
-URxvt*color0:  #282828
-URxvt*color8:  #928374
-! DarkRed + Red
-URxvt*color1:  #cc241d
-URxvt*color9:  #fb4934
-! DarkGreen + Green
-URxvt*color2:  #98971a
-URxvt*color10: #b8bb26
-! DarkYellow + Yellow
-URxvt*color3:  #d79921
-URxvt*color11: #fabd2f
-! DarkBlue + Blue
-URxvt*color4:  #458588
-URxvt*color12: #83a598
-! DarkMagenta + Magenta
-URxvt*color5:  #b16286
-URxvt*color13: #d3869b
-! DarkCyan + Cyan
-URxvt*color6:  #689d6a
-URxvt*color14: #8ec07c
-! LightGrey + White
-URxvt*color7:  #a89984
-URxvt*color15: #ebdbb2
+! special
+URxvt*.foreground:   #e0f2ec
+URxvt*.background:   #11292e
+URxvt*.cursorColor:  #e0f2ec
+
+! black
+URxvt*.color0:       #0e1f22
+URxvt*.color8:       #1c4b4e
+
+! red
+URxvt*.color1:       #a85659
+URxvt*.color9:       #eb8995
+
+! green
+URxvt*.color2:       #668e8c
+URxvt*.color10:      #82aea9
+
+! yellow
+URxvt*.color3:       #c3b6a4
+URxvt*.color11:      #e1d9ce
+
+! blue
+URxvt*.color4:       #326d78
+URxvt*.color12:      #a7d2cd
+
+! magenta (or orange)
+URxvt*.color5:       #433c32
+URxvt*.color13:      #aa9576
+
+! cyan
+URxvt*.color6:       #386e74
+URxvt*.color14:      #90c0bd
+
+! white
+URxvt*.color7:       #e0f2ec
+URxvt*.color15:      #f0f8f3
+
 
 
 

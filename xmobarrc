@@ -1,15 +1,11 @@
 -- vim: ft=haskell
 Config { font = "xft:SourceCodePro:size=8"
-       , bgColor = "#1b1b1b" --"#1d1f21" --"#1c1c1c"
-       , fgColor = "#737373"
        , position = Top
        --, position = TopSize C 100 35 -- use this if only using one monitor
        --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 
        , lowerOnStart = False
        , allDesktops = True
        , overrideRedirect = False
-       , border = BottomBM 0
-       , borderColor = "#4e4e4e"
        , commands = [ Run MultiCpu 
                              [ "--template" , "Cpu: <total0>%|<total1>%"
                              , "--Low"      , "50"         -- units: %
@@ -42,8 +38,8 @@ Config { font = "xft:SourceCodePro:size=8"
         -- Uptime 
          , Run Uptime [] 10
             -- keyboard layout indicator
-        , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
-                             , ("us"         , "<fc=#8B0000>US</fc>")
+        , Run Kbd            [ ("us(dvorak)" , "<fc=#4AA02C>DV</fc>")
+                             , ("us"         , "<fc=#4AA02C>US</fc>")
                              ]                
                            
                     , Run Date "%a %m/%d %H:%M" "date" 10
@@ -51,5 +47,5 @@ Config { font = "xft:SourceCodePro:size=8"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %multicpu%-%coretemp%-%memory%-%myvolume%-%<fc=#52ad91>%date%-%uptime%</fc> "
+       , template = " %StdinReader% }{ %myvolume% %multicpu% %coretemp% %memory%  <fc=#ffffff>%date% %uptime% %kbd%</fc> "
        }

@@ -20,7 +20,7 @@ Also, i made minimall Xmonad config for those who appreciate minimalism.
 
 Screenshots
 
-<a href="https://ibb.co/bNuqux"><img src="https://preview.ibb.co/hmyGZx/2018_04_04_215922_1920x1080.png" alt="2018_04_04_215922_1920x1080" border="0"></a>
+<a href="https://ibb.co/eQGT2H"><img src="https://preview.ibb.co/mr5cwc/2018_04_07_184438_1920x1080.png" alt="2018_04_07_184438_1920x1080" border="0"></a>
 
 
-<a href="https://ibb.co/cO58gc"><img src="https://preview.ibb.co/dQpqux/2018_04_04_215937_1920x1080.png" alt="2018_04_04_215937_1920x1080" border="0"></a>
+<a href="https://ibb.co/kCahUx"><img src="https://preview.ibb.co/njAGpx/2018_04_07_184329_1920x1080.png" alt="2018_04_07_184329_1920x1080" border="0"></a>

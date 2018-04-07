@@ -2,12 +2,9 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Layout.Fullscreen
-import XMonad.Layout.Spiral
-import XMonad.Layout.Tabbed
-import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Spacing
+import XMonad.Layout.OneBig
 import XMonad.Layout.NoBorders
-import XMonad.Layout.Gaps
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
@@ -23,7 +20,7 @@ main = do
       , borderWidth        = 1
       , normalBorderColor  = "#dddddd"
       , focusedBorderColor = "#00dd00"
-      , layoutHook         = smartBorders $ myLayout
+      , layoutHook         = smartBorders $ myLayoutHook
       -- this must be in this order, docksEventHook must be last
       , handleEventHook    = handleEventHook def <+> docksEventHook
       , logHook            = dynamicLogWithPP xmobarPP
@@ -62,20 +59,9 @@ myworkspaces = [ "code"
                , "music"
                , "root"
                ]
-myLayout = avoidStruts (
-    ThreeColMid 1 (3/100) (1/2) |||
-    Tall 1 (3/100) (1/2) |||
-    Mirror (Tall 1 (3/100) (1/2)) |||
-    tabbed shrinkText tabConfig |||
-    Full |||
-    spiral (6/7)) |||
-    noBorders (fullscreenFull Full) 
+-- with spacing
+myLayoutHook = (spacing 10 $ avoidStruts (tall ||| OneBig (3/4) (3/4) ||| Full )) ||| smartBorders Full
+                  where tall = Tall 1 (3/100) (1/2) 
+    
+    
 
-tabConfig = def {
-    activeBorderColor = "#7C7C7C",
-    activeTextColor = "#CEFFAC",
-    activeColor = "#000000",
-    inactiveBorderColor = "#7C7C7C",
-    inactiveTextColor = "#EEEEEE",
-    inactiveColor = "#000000"
-}

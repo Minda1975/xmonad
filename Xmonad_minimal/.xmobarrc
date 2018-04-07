@@ -1,0 +1,55 @@
+-- vim: ft=haskell
+Config { font = "xft:SourceCodePro:size=8"
+       , bgColor = "#1b1b1b" --"#1d1f21" --"#1c1c1c"
+       , fgColor = "#737373"
+       , position = Top
+       --, position = TopSize C 100 35 -- use this if only using one monitor
+       --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 
+       , lowerOnStart = False
+       , allDesktops = True
+       , overrideRedirect = False
+       , border = BottomBM 0
+       , borderColor = "#4e4e4e"
+       , commands = [ Run MultiCpu 
+                             [ "--template" , "■ <total0>%|<total1>%"
+                             , "--Low"      , "50"         -- units: %
+                             , "--High"     , "85"         -- units: %
+                             , "--low"      , "#FFB6B0"
+                             , "--normal"   , "#CEFFAC"
+                             , "--high"     , "#FFFFCC"
+                             ] 10
+
+        -- cpu core temperature monitor
+        , Run CoreTemp       [ "--template" , "± <core0>°±<core1>°"
+                             , "--Low"      , "70"        -- units: °C
+                             , "--High"     , "80"        -- units: °C
+                             , "--low"      , "#ECF9F9"
+                             , "--normal"   , "#ECF9F9"
+                             , "--high"     , "#ae8686"
+                             ] 50
+                          
+        -- memory usage monitor
+        , Run Memory         [ "--template" ,"□ <usedratio>%"
+                             , "--Low"      , "20"        -- units: %
+                             , "--High"     , "90"        -- units: %
+                             , "--low"      , "#ECF9F9"
+                             , "--normal"   , "#ECF9F9"
+                             , "--high"     , "#ae8686"
+                             ] 10
+         -- volume indicator                    
+        , Run Com "/home/mindaugas/.scripts/volume.sh" [] "myvolume" 10 
+        
+        -- Uptime 
+         , Run Uptime [] 10
+            -- keyboard layout indicator
+        , Run Kbd            [ ("us(dvorak)" , "<fc=#ECF9F9>DV</fc>")
+                             , ("us"         , "<fc=#ECF9F9>US</fc>")
+                             ]                
+                           
+                    , Run Date "%a %m/%d %H:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %myvolume% %multicpu% %coretemp% %memory%  <fc=#ECF9F9>%date% %uptime% %kbd%</fc> "
+       }

@@ -26,11 +26,11 @@ main = do
       , handleEventHook    = handleEventHook def <+> docksEventHook
       , logHook            = dynamicLogWithPP xmobarPP
           { ppOutput          = hPutStrLn xmproc
-          , ppCurrent         = xmobarColor "#3EA055" "" . wrap "[" "]"
+          , ppCurrent         = xmobarColor "#7FE817" "" . wrap "{" "}"
+          , ppHidden          = xmobarColor "#387C44" ""
           , ppLayout          = xmobarColor "#9DC209"  "" . shorten 15
           , ppUrgent          = xmobarColor "red" "yellow"
           , ppTitle           = xmobarColor "green"  "" . shorten 50
-          , ppVisible         = xmobarColor "#ffffff" "" . wrap "(" ")"
           , ppHiddenNoWindows = xmobarColor "#2554C7" ""
           }
       , startupHook        = setWMName "LG3D"

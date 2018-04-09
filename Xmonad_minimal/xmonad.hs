@@ -19,19 +19,19 @@ main = do
       , workspaces         = myworkspaces
       , terminal           = "urxvtc"
       , borderWidth        = 1
-      , normalBorderColor  = "#dddddd"
-      , focusedBorderColor = "#00dd00"
+      , normalBorderColor  = "#c0a79a"
+      , focusedBorderColor = "#4c9882"
       , layoutHook         = smartBorders $ myLayoutHook
       -- this must be in this order, docksEventHook must be last
       , handleEventHook    = handleEventHook def <+> docksEventHook
       , logHook            = dynamicLogWithPP xmobarPP
           { ppOutput          = hPutStrLn xmproc
-          , ppCurrent         = xmobarColor "#7FE817" "" . wrap "{" "}"
-          , ppHidden          = xmobarColor "#387C44" ""
-          , ppLayout          = xmobarColor "#9DC209"  "" . shorten 15
+          , ppCurrent         = xmobarColor "#4c9882" "" . wrap "{" "}"
+          , ppHidden          = xmobarColor "#615772" ""
+          , ppLayout          = xmobarColor "#783E57"  "" . shorten 15
           , ppUrgent          = xmobarColor "red" "yellow"
-          , ppTitle           = xmobarColor "green"  "" . shorten 50
-          , ppHiddenNoWindows = xmobarColor "#2554C7" ""
+          , ppTitle           = xmobarColor "#71949a"  "" . shorten 50
+          , ppHiddenNoWindows = xmobarColor "#c0a79a" ""
           }
       , startupHook        = setWMName "LG3D"
       } `additionalKeys`

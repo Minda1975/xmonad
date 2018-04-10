@@ -2,8 +2,9 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Layout.Spacing
 import XMonad.Actions.GridSelect
+import qualified XMonad.StackSet as W 
+import XMonad.Util.Scratchpad (scratchpadSpawnAction, scratchpadManageHook, scratchpadFilterOutWorkspace)
 import XMonad.Layout.OneBig
 import XMonad.Layout.NoBorders
 import XMonad.Util.Run(spawnPipe)
@@ -15,7 +16,7 @@ main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ def
       { modMask            = mod4Mask
-      , manageHook         = manageDocks <+> manageHook def
+      , manageHook         = manageDocks <+> scratchpadManageHook (W.RationalRect 0.25 0.375 0.5 0.35)
       , workspaces         = myworkspaces
       , terminal           = "urxvtc"
       , borderWidth        = 1
@@ -36,6 +37,7 @@ main = do
       , startupHook        = setWMName "LG3D"
       } `additionalKeys`
       [ ((mod4Mask, xK_g), goToSelected def) 
+      , ((mod4Mask , xK_grave), scratchpadSpawnAction def  {terminal = "urxvtc"}) 
       , ((mod4Mask, xK_p), spawn "/home/mindaugas/.scripts/emenu_run")
       , ((mod4Mask, xK_r), spawn "/home/mindaugas/.scripts/shutdown.sh")
       , ((mod4Mask, xK_x), spawn "/home/mindaugas/.scripts/mpdmenu")
@@ -57,6 +59,6 @@ myworkspaces = [ "code"
                , "root"
                ]
 -- with spacing
-myLayoutHook = (spacing 10 $ avoidStruts (tall ||| OneBig (3/4) (3/4) ||| Full )) ||| smartBorders Full
+myLayoutHook = ( avoidStruts (tall ||| OneBig (3/4) (3/4) ||| Full )) ||| smartBorders Full
                   where tall = Tall 1 (3/100) (1/2) 
     

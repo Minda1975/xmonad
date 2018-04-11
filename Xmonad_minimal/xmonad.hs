@@ -1,11 +1,17 @@
 import XMonad
+import System.Exit
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Actions.GridSelect
 import qualified XMonad.StackSet as W 
 import XMonad.Util.Scratchpad (scratchpadSpawnAction, scratchpadManageHook, scratchpadFilterOutWorkspace)
-import XMonad.Layout.OneBig
+import XMonad.Layout.StackTile
+import XMonad.Layout.MosaicAlt
+import qualified Data.Map as M
+import XMonad.Prompt
+import XMonad.Prompt.Shell
+import XMonad.Prompt.ConfirmPrompt
 import XMonad.Layout.NoBorders
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
@@ -37,9 +43,15 @@ main = do
       , startupHook        = setWMName "LG3D"
       } `additionalKeys`
       [ ((mod4Mask, xK_g), goToSelected def) 
+      , ((mod4Mask .|. shiftMask  , xK_a), withFocused (sendMessage . expandWindowAlt))
+      , ((mod4Mask .|. shiftMask  , xK_z), withFocused (sendMessage . shrinkWindowAlt))
+      , ((mod4Mask .|. shiftMask  , xK_s), withFocused (sendMessage . tallWindowAlt))
+      , ((mod4Mask .|. shiftMask  , xK_d), withFocused (sendMessage . wideWindowAlt))
+      , ((mod4Mask .|. controlMask, xK_space), sendMessage resetAlt)
+      , ((mod4Mask .|. controlMask, xK_x), shellPrompt def)
+      , ((mod4Mask .|. shiftMask, xK_q), confirmPrompt myXPConfig "exit" $ io (exitWith ExitSuccess))
       , ((mod4Mask , xK_grave), scratchpadSpawnAction def  {terminal = "urxvtc"}) 
-      , ((mod4Mask, xK_p), spawn "/home/mindaugas/.scripts/emenu_run")
-      , ((mod4Mask, xK_r), spawn "/home/mindaugas/.scripts/shutdown.sh")
+      , ((mod4Mask .|. shiftMask, xK_r), spawn "/home/mindaugas/.scripts/shutdown.sh")
       , ((mod4Mask, xK_x), spawn "/home/mindaugas/.scripts/mpdmenu")
       , ((mod4Mask, xK_F1), spawn "/home/mindaugas/.scripts/dmenu_fm")
       , ((mod4Mask, xK_w), spawn "/home/mindaugas/.scripts/screenshot")
@@ -59,6 +71,13 @@ myworkspaces = [ "code"
                , "root"
                ]
 -- with spacing
-myLayoutHook = ( avoidStruts (tall ||| OneBig (3/4) (3/4) ||| Full )) ||| smartBorders Full
+myLayoutHook = ( avoidStruts (tall ||| StackTile 1 (3/100) (1/2) ||| MosaicAlt M.empty ||| Full )) ||| smartBorders Full
                   where tall = Tall 1 (3/100) (1/2) 
     
+
+myXPConfig = def
+  { position          = Top
+  , alwaysHighlight   = True
+  , promptBorderWidth = 0
+  , font              = "xft:monospace:size=9"
+}

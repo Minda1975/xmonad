@@ -7,6 +7,7 @@ import XMonad.Actions.GridSelect
 import qualified XMonad.StackSet as W 
 import XMonad.Util.Scratchpad (scratchpadSpawnAction, scratchpadManageHook, scratchpadFilterOutWorkspace)
 import XMonad.Layout.StackTile
+import XMonad.Layout.FixedColumn
 import XMonad.Layout.MosaicAlt
 import qualified Data.Map as M
 import XMonad.Prompt
@@ -71,8 +72,8 @@ myworkspaces = [ "code"
                , "root"
                ]
 -- with spacing
-myLayoutHook = ( avoidStruts (tall ||| StackTile 1 (3/100) (1/2) ||| MosaicAlt M.empty ||| Full )) ||| smartBorders Full
-                  where tall = Tall 1 (3/100) (1/2) 
+myLayoutHook = ( avoidStruts (FixedColumn 1 20 80 10 ||| StackTile 1 (3/100) (1/2) ||| MosaicAlt M.empty ||| Full )) ||| smartBorders Full
+                   
     
 
 myXPConfig = def

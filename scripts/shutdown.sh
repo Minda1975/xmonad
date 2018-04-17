@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cmd=$(printf "poweroff\nreboot\nsuspend\nlock\nkillX\n" | dmenu -p "Execute:" $*)
+cmd=$(printf "poweroff\nreboot\nlock\n" | dmenu -p "Execute:" $*)
 
 if [ -z "$cmd" ]; then
 	exit 0
@@ -11,12 +11,8 @@ case "$cmd" in
 		systemctl poweroff ;;
 	reboot)
 		systemctl reboot ;;
-	suspend)
-		systemctl suspend ;;
 	lock)
 		slock ;;
-	killX)
-		killall X ;;
 	*)
 		printf "Option not recognized: %s\n" "$cmd" >&2
 esac

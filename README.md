@@ -20,10 +20,10 @@ Also, i made minimall Xmonad config for those who appreciate minimalism.
 
 Screenshots
 
-<a href="https://ibb.co/hFiKEx"><img src="https://preview.ibb.co/imaAMc/2018_04_10_185019_1920x1080.png" alt="2018_04_10_185019_1920x1080" border="0"></a>
+<a href="https://ibb.co/jjn3Gx"><img src="https://preview.ibb.co/b8XEOc/2018_04_23_220554_1920x1080.png" alt="2018_04_23_220554_1920x1080" border="0"></a>
 
 
-<a href="https://ibb.co/idBjgc"><img src="https://preview.ibb.co/ghRH1c/2018_04_10_185040_1920x1080.png" alt="2018_04_10_185040_1920x1080" border="0"></a>
+<a href="https://ibb.co/iVkvUH"><img src="https://preview.ibb.co/d6fUpH/2018_04_23_220644_1920x1080.png" alt="2018_04_23_220644_1920x1080" border="0"></a>
 
 
-<a href="https://ibb.co/mAvugc"><img src="https://preview.ibb.co/g1GNZx/2018_04_10_185029_1920x1080.png" alt="2018_04_10_185029_1920x1080" border="0"></a>
+<a href="https://ibb.co/mueB3c"><img src="https://preview.ibb.co/jUnaUH/2018_04_23_220614_1920x1080.png" alt="2018_04_23_220614_1920x1080" border="0"></a>

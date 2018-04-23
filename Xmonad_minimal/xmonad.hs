@@ -27,19 +27,19 @@ main = do
       , workspaces         = myworkspaces
       , terminal           = "urxvtc"
       , borderWidth        = 1
-      , normalBorderColor  = "#c0a79a"
-      , focusedBorderColor = "#4c9882"
+      , normalBorderColor  = "#cbd6e2"
+      , focusedBorderColor = "#56bf8b"
       , layoutHook         = smartBorders $ myLayoutHook
       -- this must be in this order, docksEventHook must be last
       , handleEventHook    = handleEventHook def <+> docksEventHook
       , logHook            = dynamicLogWithPP xmobarPP
           { ppOutput          = hPutStrLn xmproc
-          , ppCurrent         = xmobarColor "#4c9882" "" . wrap "{" "}"
-          , ppHidden          = xmobarColor "#615772" ""
-          , ppLayout          = xmobarColor "#783E57"  "" . shorten 15
+          , ppCurrent         = xmobarColor "#56bf8b" "" . wrap "{" "}"
+          , ppHidden          = xmobarColor "#bfbf56" ""
+          , ppLayout          = xmobarColor "#8b56bf"  "" . shorten 15
           , ppUrgent          = xmobarColor "red" "yellow"
-          , ppTitle           = xmobarColor "#71949a"  "" . shorten 50
-          , ppHiddenNoWindows = xmobarColor "#c0a79a" ""
+          , ppTitle           = xmobarColor "#8bbf56"  "" . shorten 50
+          , ppHiddenNoWindows = xmobarColor "#bf5656" ""
           }
       , startupHook        = setWMName "LG3D"
       } `additionalKeys`
@@ -49,7 +49,7 @@ main = do
       , ((mod4Mask .|. shiftMask  , xK_s), withFocused (sendMessage . tallWindowAlt))
       , ((mod4Mask .|. shiftMask  , xK_d), withFocused (sendMessage . wideWindowAlt))
       , ((mod4Mask .|. controlMask, xK_space), sendMessage resetAlt)
-      , ((mod4Mask .|. controlMask, xK_x), shellPrompt def)
+      , ((mod4Mask .|. controlMask, xK_x), shellPrompt myXPConfig)
       , ((mod4Mask .|. shiftMask, xK_q), confirmPrompt myXPConfig "exit" $ io (exitWith ExitSuccess))
       , ((mod4Mask , xK_grave), scratchpadSpawnAction def  {terminal = "urxvtc"}) 
       , ((mod4Mask .|. shiftMask, xK_r), spawn "/home/mindaugas/.scripts/shutdown.sh")
@@ -79,6 +79,10 @@ myLayoutHook = ( avoidStruts (FixedColumn 1 20 80 10 ||| StackTile 1 (3/100) (1/
 myXPConfig = def
   { position          = Top
   , alwaysHighlight   = True
+  , bgColor             = "#0b1c2c"
+  , fgColor             = "#cbd6e2"
+  , bgHLight            = "#0b1c2c"
+  , fgHLight            = "#F0E0AF"
   , promptBorderWidth = 0
-  , font              = "xft:monospace:size=9"
+  , font              = "xft:iosevka term:size=9"
 }

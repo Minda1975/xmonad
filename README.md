@@ -27,3 +27,21 @@ Screenshots
 
 
 <a href="https://ibb.co/mueB3c"><img src="https://preview.ibb.co/jUnaUH/2018_04_23_220614_1920x1080.png" alt="2018_04_23_220614_1920x1080" border="0"></a>
+
+
+                                                    **LICENCE**
+                                                    
+                                                    
+                                                    
+     
+
+ > This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+   > This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+   > You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/
+                                   
+                                   
+                                              **AUTHOR**
+                                              
+Mindaugas Celiešius (m.celiesius@yandex.ru)                                              

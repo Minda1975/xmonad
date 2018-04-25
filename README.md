@@ -29,7 +29,7 @@ Screenshots
 <a href="https://ibb.co/mueB3c"><img src="https://preview.ibb.co/jUnaUH/2018_04_23_220614_1920x1080.png" alt="2018_04_23_220614_1920x1080" border="0"></a>
 
 
-                                                    #License
+                                                    **License**
                                                     
                                                     
                                                     
@@ -42,6 +42,6 @@ Screenshots
    > You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/
                                    
                                    
-                                              #Author
+                                              **Author**
                                               
 - Mindaugas Celiešius (m.celiesius@yandex.ru)                                              

@@ -1,0 +1,204 @@
+xterm*faceName: Iosevka Term
+xterm*faceSize: 10
+xterm*renderFont: true
+
+
+! VT Font Menu: Unreadable
+xterm*faceSize1: 8
+! VT font menu: Tiny
+xterm*faceSize2: 10
+! VT font menu: Medium
+xterm*faceSize3: 12
+! VT font menu: Large
+xterm*faceSize4: 16
+! VT font menu: Huge
+xterm*faceSize5: 22
+
+xterm*VT100.Translations: #override \
+    Ctrl <Key> minus: smaller-vt-font() \n\
+    Ctrl <Key> plus: larger-vt-font() \n\
+    Ctrl <Key> 0: set-vt-font(d)
+
+
+
+! Only select text
+xterm*highlightSelection: true
+! Remove trailing spaces
+! font settings --------------------------------------------------------------
+
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+!Xft.dpi: 96
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+
+xterm*trimSelection: true
+
+! Lines of output that you can scroll back over
+xterm*saveLines: 4096
+! Turn the scrollbar on, and put it on the right
+xterm*scrollBar: false
+xterm*rightScrollBar: false
+
+! Do not scroll when there is new input e.g. tail -f /var/syslog
+xterm*scrollTtyOutput: false
+
+! -----------------------------------------------------------------------------
+! File: gruvbox-light.xresources
+! Description: Retro groove colorscheme generalized
+! Author: morhetz <morhetz@gmail.com>
+! Source: https://github.com/morhetz/gruvbox-generalized
+! Last Modified: 6 Sep 2014
+! -----------------------------------------------------------------------------
+
+! hard contrast: *background: #f9f5d7
+xterm*background: #fbf1c7
+! soft contrast: *background: #f2e5bc
+xterm*foreground: #3c3836
+! Black + DarkGrey
+xterm*color0:  #fdf4c1
+xterm*color8:  #928374
+! DarkRed + Red
+xterm*color1:  #cc241d
+xterm*color9:  #9d0006
+! DarkGreen + Green
+xterm*color2:  #98971a
+xterm*color10: #79740e
+! DarkYellow + Yellow
+xterm*color3:  #d79921
+xterm*color11: #b57614
+! DarkBlue + Blue
+xterm*color4:  #458588
+xterm*color12: #076678
+! DarkMagenta + Magenta
+xterm*color5:  #b16286
+xterm*color13: #8f3f71
+! DarkCyan + Cyan
+xterm*color6:  #689d6a
+xterm*color14: #427b58
+! LightGrey + White
+xterm*color7:  #7c6f64
+xterm*color15: #3c3836
+
+
+
+
+
+
+
+
+! urxvt -------------------------------------------
+
+URxvt.font: xft:Fantasque Sans Mono:size=10 :antialias=true:autohint=false
+URxvt.boldFont: xft:Fantasque Sans Mono:Bold:size=10 :antialias=true:autohint=false
+
+! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
+
+! Window size and position
+!URxvt*geometry: 60x22+50+100
+! Window size, let the Window Manager position it
+URxvt.geometry: 80x28
+
+URxvt.scrollBar: false
+
+! scrollback buffer lines - 65535 is max (64 is default)
+URxvt.saveLines:8192
+
+
+! Clickble URLs
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 3
+
+
+
+! Solarized color scheme for the X Window System
+!
+! http://ethanschoonover.com/solarized
+
+
+! Common
+
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+
+! Dark
+
+! #define S_base03        #002b36
+! #define S_base02        #073642
+! #define S_base01        #586e75
+! #define S_base00        #657b83
+! #define S_base0         #839496
+! #define S_base1         #93a1a1
+! #define S_base2         #eee8d5
+! #define S_base3         #fdf6e3
+
+
+! Light
+
+#define S_base03        #fdf6e3
+#define S_base02        #eee8d5
+#define S_base01        #93a1a1
+#define S_base00        #839496
+#define S_base0         #657b83
+#define S_base1         #586e75
+#define S_base2         #073642
+#define S_base3         #002b36
+
+
+! To only apply colors to your terminal, for example, prefix
+! the color assignment statement with its name. Example:
+!
+! URxvt*background:            S_base03
+
+URxvt*background:              S_base03
+URxvt*foreground:              S_base0
+URxvt*fading:                  40
+URxvt*fadeColor:               S_base03
+URxvt*cursorColor:             S_base1
+URxvt*pointerColorBackground:  S_base01
+URxvt*pointerColorForeground:  S_base1
+
+URxvt*color0:                  S_base02
+URxvt*color1:                  S_red
+URxvt*color2:                  S_green
+URxvt*color3:                  S_yellow
+URxvt*color4:                  S_blue
+URxvt*color5:                  S_magenta
+URxvt*color6:                  S_cyan
+URxvt*color7:                  S_base2
+URxvt*color9:                  S_orange
+URxvt*color8:                  S_base03
+URxvt*color10:                 S_base01
+URxvt*color11:                 S_base00
+URxvt*color12:                 S_base0
+URxvt*color13:                 S_violet
+URxvt*color14:                 S_base1
+URxvt*color15:                 S_base3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

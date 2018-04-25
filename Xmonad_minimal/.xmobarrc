@@ -1,0 +1,58 @@
+-- vim: ft=haskell
+Config { font = "xft:DejaVu Sans Mono:size=8"
+       , bgColor = "#002b36" --"#1d1f21" --"#1c1c1c"
+       , fgColor = "#839496"
+       , position = Top
+       --, position = TopSize C 100 35 -- use this if only using one monitor
+       --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 
+       , lowerOnStart = False
+       , allDesktops = True
+       , overrideRedirect = False
+       , border = BottomBM 0
+       , borderColor = "#b58900"
+       , commands = [ Run MultiCpu 
+                             [ "--template" , "■ <total0>%|<total1>%"
+                             , "--Low"      , "50"         -- units: %
+                             , "--High"     , "85"         -- units: %
+                             , "--low"      , "#839496"
+                             , "--normal"   , "#859900"
+                             , "--high"     , "#dc322f"
+                             ] 10
+
+        -- cpu core temperature monitor
+        , Run CoreTemp       [ "--template" , "± <core0>°±<core1>°"
+                             , "--Low"      , "70"        -- units: °C
+                             , "--High"     , "80"        -- units: °C
+                             , "--low"      , "#839496"
+                             , "--normal"   , "#859900"
+                             , "--high"     , "#dc322f"
+                             ] 50
+                          
+        -- memory usage monitor
+        , Run Memory         [ "--template" ,"□ <usedratio>%"
+                             , "--Low"      , "20"        -- units: %
+                             , "--High"     , "90"        -- units: %
+                             , "--low"      , "#839496"
+                             , "--normal"   , "#859900"
+                             , "--high"     , "#dc322f"
+                             ] 10
+         -- volume indicator                    
+        , Run Com "/home/mindaugas/.scripts/volume.sh" [] "myvolume" 10 
+        
+         -- music indicator                    
+        , Run Com "/home/mindaugas/.scripts/music" [] "mymusic" 10
+        
+        -- Uptime 
+         , Run Uptime [] 10
+            -- keyboard layout indicator
+        , Run Kbd            [ ("us(dvorak)" , "<fc=#839496>DV</fc>")
+                             , ("us"         , "<fc=#839496>US</fc>")
+                             ]                
+                           
+                    , Run Date "%a %m/%d %H:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %mymusic% ■ %myvolume% %multicpu% %coretemp% %memory%  <fc=#839496>%date% %uptime% %kbd%</fc> "
+       }

@@ -315,7 +315,7 @@ wsPP = xmobarPP { ppOrder           = \(ws:l:t:_)  -> [ws,l,t]
 -- myXPConfig:        XPConfig                                            {{{
 
 myXPConfig = def
-                { font              = "xft:Fira Code:size=10:antialias=true"
+                { font              = "xft:Input Mono:size=9:medium:antialias=true"
                 , fgColor           = colorfg
                 , bgColor           = colorNormalbg
                 , borderColor       = colorNormalbg

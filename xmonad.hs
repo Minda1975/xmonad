@@ -102,7 +102,7 @@ main = do
     wsbar <- spawnPipe myWsBar
     xmonad $ ewmh def
        { borderWidth        = borderwidth
-       , terminal           = "xterm"
+       , terminal           = "urxvt"
        , focusFollowsMouse  = True
        , normalBorderColor  = mynormalBorderColor
        , focusedBorderColor = myfocusedBorderColor
@@ -226,13 +226,13 @@ main = do
        -- Launch simple file manager)
        , ("C-<Tab>", spawn "/home/mindaugas/.scripts/dmenu_fm")
        -- Launch terminal
-       , ("M-S-<Return>", spawn "xterm")
+       , ("M-S-<Return>", spawn "urxvt")
        -- Launch file manager
-       , ("M-S-f", spawn "pcmanfm")
+       , ("M-S-f", spawn "urxvt -e /usr/bin/mc")
        -- Launch web browser
        , ("M-S-w", spawn "firefox")
        -- Launch dmenu for launching applicatiton
-       , ("M-p", spawn "/home/mindaugas/.scripts/emenu_run")
+       , ("M-p", spawn "rofi -show run -modi run -theme solarized")
        , ("M-r", spawn "/home/mindaugas/.scripts/shutdown.sh")
        , ("M-x", spawn "/home/mindaugas/.scripts/mpdmenu")
        -- Toggle workspace
@@ -271,13 +271,9 @@ myManageHookShift = composeAll
 -------------------------------------------------------------------------------
 
 myManageHookFloat = composeAll
-    [ className =? "Gimp"             --> doFloat
-    , className =? "SMPlayer"               --> doFloat
+    [ className =? "SMPlayer"               --> doFloat
     , className =? "mpv"              --> doCenterFloat
     , className =? "feh"              --> doCenterFloat
-    , className =? "Audacious"        --> doCenterFloat
-    , className =? "Gmpc"           --> doCenterFloat
-    , className =? "Websearch"        --> doCenterFloat
     , title     =? "urxvt_float"      --> doSideFloat SC
     , isFullscreen                    --> doFullFloat
     , isDialog                        --> doCenterFloat

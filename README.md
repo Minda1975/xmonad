@@ -6,6 +6,7 @@ All Xmonad configuration is in ~/.xmonad/xmonad.hs. This includes things like ke
 All scripts are in ~/.scripts. Scripts are provided to do things like take screenshots, start dmenu, browsing files with dmenu, browsing mpd playlist, play it, mpd status in xmobar (gets the currently playing song from MPD) and power menagment with dmenu (poweroff, reboot, lock the screen etc.). Also i included fonts (Ubuntu fonts and Input)  which apply my Xmonad setup and wallpapers which I created myself.
 
 P.S.
+
 For Input font (for me, these are some of the best), please go to http://input.fontbureau.com/ and get acquainted with the details. Like any good coding font, Input has generous spacing, large punctuation, and easily distinguishable characters. Much attention was paid to the size and positioning of symbols frequently used in coding — curly brackets, less-than and greater-than signs, the @ sign — characters that can easily be afterthoughts in the type design process.
 
 Screenshots

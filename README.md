@@ -3,8 +3,10 @@ This is a fork of frank604 Xmonad, with modified for my personal needs. What is 
 
 All Xmonad configuration is in ~/.xmonad/xmonad.hs. This includes things like key bindings, colors, layouts, etc. You may need to have some basic understanding of Haskell in order to modify this file, but most people have no problems. Configuration file for xmobar is in ~/.xmonad. Xmobar is configured to show date and time, mem usage, cpu usage, cpu temp, current keyboard layout, volume (separate script) and uptime.
 
-All scripts are in ~/.scripts. Scripts are provided to do things like take screenshots, start dmenu, browsing files with dmenu, browsing mpd playlist, play it, mpd status in xmobar (gets the currently playing song from MPD) and power menagment with dmenu (poweroff, reboot, lock the screen etc.). Also i included fonts which apply my Xmonad setup and wallpapers which I created myself.
+All scripts are in ~/.scripts. Scripts are provided to do things like take screenshots, start dmenu, browsing files with dmenu, browsing mpd playlist, play it, mpd status in xmobar (gets the currently playing song from MPD) and power menagment with dmenu (poweroff, reboot, lock the screen etc.). Also i included fonts (Ubuntu fonts and Input)  which apply my Xmonad setup and wallpapers which I created myself.
 
+P.S.
+For Input font (for me, these are some of the best), please go to http://input.fontbureau.com/ and get acquainted with the details. Like any good coding font, Input has generous spacing, large punctuation, and easily distinguishable characters. Much attention was paid to the size and positioning of symbols frequently used in coding — curly brackets, less-than and greater-than signs, the @ sign — characters that can easily be afterthoughts in the type design process.
 
 Screenshots
 
@@ -20,14 +22,13 @@ Also, i made minimall Xmonad config for those who appreciate minimalism.
 
 Screenshots
 
-<a href="https://ibb.co/kPTK9H"><img src="https://preview.ibb.co/jjAo3c/2018_04_25_220238_1920x1080.png" alt="2018_04_25_220238_1920x1080" border="0"></a>
+<a href="https://ibb.co/dvu1rx"><img src="https://preview.ibb.co/eSUZBx/2018_04_26_205737_1920x1080.png" alt="2018_04_26_205737_1920x1080" border="0"></a>
 
 
-<a href="https://ibb.co/fuqMOc"><img src="https://preview.ibb.co/ecgjbx/2018_04_25_220247_1920x1080.png" alt="2018_04_25_220247_1920x1080" border="0"></a>
+<a href="https://ibb.co/nb30jH"><img src="https://preview.ibb.co/gwYcWx/2018_04_26_205917_1920x1080.png" alt="2018_04_26_205917_1920x1080" border="0"></a>
 
 
-<a href="https://ibb.co/muiQic"><img src="https://preview.ibb.co/bssJ3c/2018_04_25_220259_1920x1080.png" alt="2018_04_25_220259_1920x1080" border="0"></a>
-
+<a href="https://ibb.co/k7Ypdc"><img src="https://preview.ibb.co/g1d0jH/2018_04_26_205728_1920x1080.png" alt="2018_04_26_205728_1920x1080" border="0"></a>
 
                                                    LICENSE
                                                     

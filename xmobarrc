@@ -1,5 +1,5 @@
 -- vim: ft=haskell
-Config { font = "xft:SourceCodePro:size=8"
+Config { font = "xft:Input Mono:size=9:medium:antialias=true"
        , position = Top
        --, position = TopSize C 100 35 -- use this if only using one monitor
        --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 

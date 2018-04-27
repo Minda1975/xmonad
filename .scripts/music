@@ -1,0 +1,13 @@
+#! /bin/bash
+
+TCOL="#1589FF"   
+ACOL="#FFA62F"   
+PCOL="#FBF6D9"
+
+MPDSTATE=$(mpc | sed -e '2 !d' -e 's/^.*\[//' -e 's/\].*$//')
+
+if [ $MPDSTATE == "playing" ]; then
+    echo "<fc=$ACOL>$(mpc current | sed "s/ - /\<\/fc\> - \<fc=$TCOL>/")</fc>"
+elif [ $MPDSTATE == "paused" ]; then
+    echo "<fc=$PCOL>$(mpc current)</fc>"
+fi

@@ -1,0 +1,55 @@
+-- vim: ft=haskell
+Config { font = "xft:SFNS Display:pixelsize=11:antialias=true:hinting=true"
+       , bgColor = "black" --"#1d1f21" --"#1c1c1c"
+       , fgColor = "white"
+       , position = Bottom
+       --, position = TopSize C 100 35 -- use this if only using one monitor
+       --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 
+       , lowerOnStart = False
+       , allDesktops = True
+       , overrideRedirect = False
+       , border = BottomBM 0
+       , borderColor = "black"
+       , commands = [ Run Cpu
+                              ["-L","3","-H","50","--normal","#01a252","--high","#db2d20"] 10 
+                             
+        -- network activity monitor (dynamic interface resolution)
+        , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
+                             , "--Low"      , "1000"       -- units: B/s
+                             , "--High"     , "5000"       -- units: B/s
+                             , "--low"      , "white"
+                             , "--normal"   , "green"
+                             , "--high"     , "red"
+                             ] 10
+                             
+        -- cpu core temperature monitor
+        , Run CoreTemp       [ "--template" , "± <core0>°±<core1>°"
+                             , "--Low"      , "70"        -- units: °C
+                             , "--High"     , "80"        -- units: °C
+                             , "--low"      , "white"
+                             , "--normal"   , "green"
+                             , "--high"     , "red"
+                             ] 50
+                          
+        -- Disks Args RefreshRate 
+        , Run DiskIO [("/", "<read> <write>"), ("sdb1", "<total>")] [] 10    
+               
+           
+        -- volume indicator                    
+        , Run Com "/home/mindaugas/.scripts/volume.sh" [] "myvolume" 10 
+        
+         -- music indicator                    
+        , Run Com "/home/mindaugas/.scripts/music" [] "mymusic" 10
+        
+         -- keyboard layout indicator
+        , Run Kbd            [ ("us(dvorak)" , "<fc=#ffffff>DV</fc>")
+                             , ("us"         , "<fc=#ffffff>US</fc>")
+                             ]                
+                           
+                    , Run Date "%a %m/%d %H:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ <fc=#2aa198>%mymusic%</fc> | <fc=#268bd2>%dynnetwork%</fc> <fc=#307D7E> <fc=#6c71c4>%myvolume%</fc>  <fc=#AEB404> </fc><fc=#859900>%cpu%</fc> <fc=#C35817>%coretemp%</fc> <fc=#b58900>%diskio%</fc> <fc=#2E9AFE> </fc><fc=#cb4b16>%date%</fc> %kbd%</fc> "
+       }

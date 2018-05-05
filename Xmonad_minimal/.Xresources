@@ -2,7 +2,7 @@
 ! XTerm stuff
 ! =====================================================================
 ! Default and menu font
-XTerm*font:  -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+XTerm*font:  -misc-fixed-medium-r-normal--13-120-75-75-C-80-ISO10646-1
 
 ! Colors are a matter of personal preferences.
 XTerm*background: black
@@ -148,7 +148,7 @@ URxvt*depth: 32
 URxvt*background: rgba:0000/2b00/3600/EE00
 !!URxvt*background: [50]#002b36
 !!#define S_rebase03      #002b36
-urxvt*font : -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+urxvt*font : -misc-fixed-medium-r-normal--13-120-75-75-C-80-ISO10646-1
 !!URxvt.transparent: true
 !!URxvt.shading: 20
 URxvt*saveLines: 12000

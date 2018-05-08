@@ -7,12 +7,13 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Prompt.RunOrRaise
 import qualified XMonad.StackSet as W 
 import XMonad.Util.Scratchpad (scratchpadSpawnAction, scratchpadManageHook, scratchpadFilterOutWorkspace)
-import XMonad.Layout.Named 
 import qualified Data.Map as M
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.ConfirmPrompt
 import XMonad.Layout.NoBorders
+import XMonad.Layout.StackTile
+import XMonad.Layout.Magnifier
 import XMonad.Actions.CycleWS
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Util.Run(spawnPipe)
@@ -25,7 +26,8 @@ main = do
     xmonad $ ewmh def
       { modMask            = mod4Mask
       , manageHook         = manageDocks <+> myManageHookFloat <+> scratchpadManageHook (W.RationalRect 0.25 0.375 0.5 0.35)
-      , terminal           = "urxvt"
+      , terminal           = "xterm"
+      , focusFollowsMouse = False
       , borderWidth        = 2
       , focusedBorderColor = "#4422FF"
       , layoutHook         = smartBorders $ myLayoutHook
@@ -38,9 +40,8 @@ main = do
       , startupHook        = setWMName "LG3D"
       } `additionalKeys`
       [ ((mod4Mask, xK_g), runOrRaisePrompt myXPConfig)
-      , ((mod4Mask .|. controlMask, xK_x), spawn "rofi -show run -modi run")
       , ((mod4Mask .|. shiftMask, xK_q), confirmPrompt myXPConfig "exit" $ io (exitWith ExitSuccess))
-      , ((mod4Mask, xK_grave), scratchpadSpawnAction def  {terminal = "urxvt"}) 
+      , ((mod4Mask, xK_grave), scratchpadSpawnAction def  {terminal = "xterm"}) 
       , ((mod4Mask .|. shiftMask, xK_r), spawn "/home/mindaugas/.scripts/shutdown.sh")
       , ((mod4Mask, xK_x), spawn "/home/mindaugas/.scripts/mpdmenu")
       , ((mod4Mask, xK_F1), spawn "/home/mindaugas/.scripts/dmenu_fm")
@@ -56,16 +57,17 @@ main = do
       , ((mod4Mask,               xK_a),     toggleWS)
       , ((mod4Mask,                xK_m    ), viewEmptyWorkspace)
       , ((mod4Mask .|. shiftMask,  xK_m    ), tagToEmptyWorkspace)
-      , ((mod4Mask .|. shiftMask, xK_f), spawn "urxvt -e /usr/bin/mc") ]
+      , ((mod4Mask .|. controlMask              , xK_equal ), sendMessage MagnifyMore)
+      , ((mod4Mask .|. controlMask              , xK_minus), sendMessage MagnifyLess)
+      , ((mod4Mask .|. controlMask              , xK_o    ), sendMessage ToggleOff  )
+      , ((mod4Mask .|. controlMask .|. shiftMask, xK_o    ), sendMessage ToggleOn   )
+      , ((mod4Mask .|. controlMask              , xK_m    ), sendMessage Toggle     )
+      , ((mod4Mask .|. shiftMask, xK_f), spawn "xterm -e /usr/bin/ranger") ]
 
              
 
-myLayoutHook = avoidStruts $ smartBorders ( full ||| mtiled ||| tiled )
-  where
-    full    = named "X" $ Full
-    mtiled  = named "M" $ Mirror tiled
-    tiled   = named "T" $ Tall 1 (5/100) (2/(1+(toRational(sqrt(5)::Double))))
-                   
+myLayoutHook = avoidStruts $ smartBorders $ magnifier (Tall 1 (3/100) (1/2)) ||| Full ||| StackTile 1 (3/100) (1/2) 
+                     
     
 myManageHookFloat = composeAll
     [ className =? "Gmpc"               --> doFloat
@@ -86,5 +88,6 @@ myXPConfig = def
   , promptBorderWidth = 0
   , font              = "xft:xos4 ProggyCleanTT:pixelsize=11:antialias=true:hinting=true"
 }
+
 
 

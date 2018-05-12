@@ -1,0 +1,58 @@
+-- vim: ft=haskell
+Config { font = "xft:mononoki:pixelsize=11:antialias=true:hinting=true"
+       , bgColor = "#2e3436" --"#1d1f21" --"#1c1c1c"
+       , fgColor = "#eeeeec"
+       , position = Bottom
+       --, position = TopSize C 100 35 -- use this if only using one monitor
+       --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 
+       , lowerOnStart = False
+       , allDesktops = True
+       , overrideRedirect = False
+       , border = BottomBM 0
+       , borderColor = "#000000"
+       , commands = [ Run Cpu
+                              ["-L","3","-H","50","--normal","#eeeeec","--high","#ef2929"] 10 
+                             
+        -- network activity monitor (dynamic interface resolution)
+        , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
+                             , "--Low"      , "1000"       -- units: B/s
+                             , "--High"     , "5000"       -- units: B/s
+                             , "--low"      , "#eeeeec"
+                             , "--normal"   , "#8ae234"
+                             , "--high"     , "#ef2929"
+                             ] 10
+                             
+        -- cpu core temperature monitor
+        , Run CoreTemp       [ "--template" , "± <core0>°±<core1>°"
+                             , "--Low"      , "70"        -- units: °C
+                             , "--High"     , "80"        -- units: °C
+                             , "--low"      , "#eeeeec"
+                             , "--normal"   , "#8ae234"
+                             , "--high"     , "#ef2929"
+                             ] 50
+                          
+        -- Disks Args RefreshRate 
+        , Run DiskIO [("/", "<read> <write>"), ("sdb1", "<total>")] [] 10    
+               
+           
+        -- volume indicator                    
+        , Run Com "/home/mindaugas/.scripts/volume.sh" [] "myvolume" 10 
+        
+         -- music indicator                    
+        , Run Com "/home/mindaugas/.scripts/music" [] "mymusic" 10
+        
+        -- cmus indicator                    
+        , Run Com "/home/mindaugas/.scripts/xsetcmus.sh" [] "myxsetcmus" 10
+        
+         -- keyboard layout indicator
+        , Run Kbd            [ ("us(dvorak)" , "<fc=#eeeeec>DV</fc>")
+                             , ("us"         , "<fc=#eeeeec>US</fc>")
+                             ]                
+                           
+                    , Run Date "%a %m/%d %H:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ <fc=#3465a4>%mymusic%</fc> | <fc=#3465a4>%myxsetcmus%</fc>  <fc=#92659a>%dynnetwork%</fc> <fc=#c19fbe> <fc=#07c7ca>%myvolume%</fc>  <fc=#07c7ca> </fc><fc=#d3d7cf>%cpu%</fc> <fc=#63e9e9>%coretemp%</fc> <fc=#729fcf>%diskio%</fc> <fc=#729fcf> </fc><fc=#63e9e9>%date%</fc> %kbd%</fc> "
+       }

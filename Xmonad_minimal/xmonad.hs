@@ -4,12 +4,10 @@ import System.Exit
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Prompt.RunOrRaise
 import qualified XMonad.StackSet as W 
 import XMonad.Util.Scratchpad (scratchpadSpawnAction, scratchpadManageHook, scratchpadFilterOutWorkspace)
 import qualified Data.Map as M
 import XMonad.Prompt
-import XMonad.Prompt.Shell
 import XMonad.Prompt.ConfirmPrompt
 import XMonad.Layout.NoBorders
 import XMonad.Layout.StackTile
@@ -26,11 +24,11 @@ main = do
     xmonad $ ewmh def
       { modMask            = mod4Mask
       , manageHook         = manageDocks <+> myManageHookFloat <+> scratchpadManageHook (W.RationalRect 0.25 0.375 0.5 0.35)
-      , terminal           = "xterm"
+      , terminal           = "terminator"
       , focusFollowsMouse = False
       , borderWidth        = 2
       , workspaces = myWorkspaces
-      , focusedBorderColor = "#4422FF"
+      , focusedBorderColor = "#BF616A"
       , layoutHook         = smartBorders $ myLayoutHook
       -- this must be in this order, docksEventHook must be last
       , handleEventHook    = handleEventHook def <+> fullscreenEventHook <+> docksEventHook
@@ -42,16 +40,14 @@ main = do
           }
       , startupHook        = setWMName "LG3D"
       } `additionalKeys`
-      [ ((mod4Mask, xK_g), runOrRaisePrompt myXPConfig)
-      , ((mod4Mask .|. shiftMask, xK_q), confirmPrompt myXPConfig "exit" $ io (exitWith ExitSuccess))
+      [ ((mod4Mask .|. shiftMask, xK_q), confirmPrompt myXPConfig "exit" $ io (exitWith ExitSuccess))
       , ((mod4Mask, xK_grave), scratchpadSpawnAction def  {terminal = "xterm"}) 
       , ((mod4Mask .|. shiftMask, xK_r), spawn "/home/mindaugas/.scripts/shutdown.sh")
-      , ((mod4Mask, xK_x), spawn "/home/mindaugas/.scripts/emenu_run")
+      , ((mod4Mask, xK_z), spawn "/home/mindaugas/.scripts/emenu_run")
       , ((mod4Mask, xK_F1), spawn "/home/mindaugas/.scripts/dmenu_fm")
       , ((mod4Mask, xK_w), spawn "/home/mindaugas/.scripts/screenshot")
       , ((0, xK_Print), spawn "/home/mindaugas/.scripts/select-screenshot")
       , ((mod4Mask .|. shiftMask, xK_w), spawn "firefox")
-      , ((mod4Mask , xK_z), shellPrompt myXPConfig)
       , ((mod4Mask,               xK_Down),  nextWS)
       , ((mod4Mask,               xK_Up),    prevWS)
       , ((mod4Mask .|. shiftMask, xK_Down),  shiftToNext >> nextWS)
@@ -64,7 +60,7 @@ main = do
       , ((mod4Mask .|. controlMask              , xK_o    ), sendMessage ToggleOff  )
       , ((mod4Mask .|. controlMask .|. shiftMask, xK_o    ), sendMessage ToggleOn   )
       , ((mod4Mask .|. controlMask              , xK_m    ), sendMessage Toggle     )
-      , ((mod4Mask .|. shiftMask, xK_f), spawn "xterm -e /usr/bin/ranger") ]
+      , ((mod4Mask .|. shiftMask, xK_f), spawn "terminator -e /usr/bin/ranger") ]
 
              
 
@@ -82,17 +78,17 @@ myManageHookFloat = composeAll
 myXPConfig = def
   { position          = Top
   , alwaysHighlight   = True
-  , bgColor             = "#090300"
-  , fgColor             = "#a5a2a2"
-  , bgHLight            = "#090300"
-  , fgHLight            = "#db2d20"
+  , bgColor             = "#2E3440"
+  , fgColor             = "#D8DEE9"
+  , bgHLight            = "#3B4252"
+  , fgHLight            = "#81A1C1"
   , promptBorderWidth = 0
-  , font              = "xft:mononoki:pixelsize=11:antialias=true:hinting=true"
+  , font              = "xft:sans:pixelsize=11:antialias=true:hinting=true"
 }
 
 -- Color of current window title in xmobar.
 xmobarTitleColor = "#92659a"
 
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#8ae234"
+xmobarCurrentWorkspaceColor = "#A3BE8C"
 

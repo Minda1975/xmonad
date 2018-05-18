@@ -1,9 +1,9 @@
 #! /bin/bash
 
-TCOL="#8C8C8C"   
-ACOL="#E0AF8F"   
-DCOL="#637482"   
-PCOL="#4F4F4F"   
+TCOL="#586e75"   
+ACOL="#cb4b16"   
+DCOL="#b58900"   
+PCOL="#859900"   
 
 MOCSTATE=$(mocp --info | head -n 1 | tail -c +8)
 

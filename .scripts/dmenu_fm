@@ -2,7 +2,7 @@
 
 file=1
 while [ "$file" ]; do
-	file=$(ls -1 --group-directories-first | /usr/bin/dmenu -l 10 -p "Blader: $(basename $(pwd))")
+	file=$(ls -1 --group-directories-first | /usr/bin/dmenu -l 10 -p "Blader: $(basename $(pwd))" -nb '#002b36' -nf '#657b83' -sb '#002b36' -sf '#268bd2' -fn Sans)
 	if [ -e "$file" ]; then
 		owd=$(pwd)
 		if [ -d "$file" ]; then

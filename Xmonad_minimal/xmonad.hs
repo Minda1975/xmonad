@@ -28,7 +28,8 @@ main = do
       , focusFollowsMouse = False
       , borderWidth        = 2
       , workspaces = myWorkspaces
-      , focusedBorderColor = "#BF616A"
+      , normalBorderColor = "#002b36"
+      , focusedBorderColor = "#657b83"
       , layoutHook         = smartBorders $ myLayoutHook
       -- this must be in this order, docksEventHook must be last
       , handleEventHook    = handleEventHook def <+> fullscreenEventHook <+> docksEventHook
@@ -78,17 +79,17 @@ myManageHookFloat = composeAll
 myXPConfig = def
   { position          = Top
   , alwaysHighlight   = True
-  , bgColor             = "#2E3440"
-  , fgColor             = "#D8DEE9"
-  , bgHLight            = "#3B4252"
-  , fgHLight            = "#81A1C1"
+  , bgColor             = "#002b36"
+  , fgColor             = "#657b83"
+  , bgHLight            = "#002b36"
+  , fgHLight            = "#268bd2"
   , promptBorderWidth = 0
   , font              = "xft:sans:pixelsize=11:antialias=true:hinting=true"
 }
 
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#92659a"
+xmobarTitleColor = "#859900"
 
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#A3BE8C"
+xmobarCurrentWorkspaceColor = "#CEFFAC"
 

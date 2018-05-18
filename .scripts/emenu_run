@@ -1,6 +1,10 @@
 #!/bin/sh
 # https://faq.i3wm.org/question/6299/repeat-or-history-for-dmenu-commands.1.html
 
+config_1="$XDG_CONFIG_HOME/herbstluftwm/herbstcommander"
+config_2="$HOME/.config/herbstluftwm/herbstcommander"
+[[ -f "$config_1" ]] && source "$config_1"
+[[ -f "$config_2" ]] && source "$config_2"
 
 cachedir=${XDG_CACHE_HOME:-"$HOME/.cache"}
 histsize=50
@@ -18,9 +22,9 @@ fi
 cmd=$(
     IFS=:
     if stest -dqr -n "$cache" $PATH; then
-        (tac "$hist" ; stest -flx $PATH | sort -u | tee "$cache" ) | dmenu "$@" -b -f -nb '#212121' -nf '#C0C5CE' -sb '#6699CC' -sf '#212121' -fn Menlo
+        (tac "$hist" ; stest -flx $PATH | sort -u | tee "$cache" ) | dmenu "$@" -b -f -nb '#002b36' -nf '#657b83' -sb '#002b36' -sf '#268bd2' -fn Sans
     else
-        (tac "$hist"; cat "$cache") | dmenu "$@" -b -f -nb '#212121' -nf '#C0C5CE' -sb '#6699CC' -sf '#212121' -fn Menlo
+        (tac "$hist"; cat "$cache") | dmenu "$@" -b -f -nb '#002b36' -nf '#657b83' -sb '#002b36' -sf '#268bd2' -fn Sans
     fi
     ) 
 

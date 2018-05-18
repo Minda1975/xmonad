@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cmd=$(printf "poweroff\nreboot\nlock\n" | dmenu -p "Execute:" $*)
+cmd=$(printf "poweroff\nreboot\nlock\n" | dmenu -p "Execute:" $* -b -nb '#002b36' -nf '#657b83' -sb '#002b36' -sf '#268bd2' -fn Sans)
 
 if [ -z "$cmd" ]; then
 	exit 0

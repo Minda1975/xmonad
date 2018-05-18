@@ -1,0 +1,20 @@
+#! /bin/bash
+
+TCOL="#8C8C8C"   
+ACOL="#E0AF8F"   
+DCOL="#637482"   
+PCOL="#4F4F4F"   
+
+MOCSTATE=$(mocp --info | head -n 1 | tail -c +8)
+
+if [ $MOCSTATE == "PLAY" ]; then
+  # MOC playing
+  echo "<fc=$ACOL>$(mocp --info | tail -n +4 | head -n 1 | \
+       tail -c +9)</fc> <fc=$DCOL>-</fc> <fc=$TCOL>$(mocp --info | \
+       tail -n +5 | head -n 1 | tail -c +12)</fc>"
+
+elif [ $MOCSTATE == "PAUSE" ]; then
+  # MOC pause
+  echo "<fc=$PCOL>$(mocp --info | tail -n +4 | head -n 1 | \
+       tail -c +9) - $(mocp --info | tail -n +5 | head -n 1 | tail -c +12)</fc>"
+fi

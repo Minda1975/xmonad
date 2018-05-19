@@ -25,7 +25,7 @@ else
 fi
 
 # show dmenu playlist and promp
-DMENU_INPUT="$(echo "$MPC_PLAYLIST" |dmenu -i -p "$MPC_STATE$MPC_POSITION$MPC_TITLE" "$@")"
+DMENU_INPUT="$(echo "$MPC_PLAYLIST" |dmenu -i -b -p "$MPC_STATE$MPC_POSITION$MPC_TITLE" "$@")"
 
 # MPD Controls
 case $DMENU_INPUT in

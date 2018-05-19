@@ -45,6 +45,7 @@ main = do
       , ((mod4Mask, xK_grave), scratchpadSpawnAction def  {terminal = "xterm"}) 
       , ((mod4Mask .|. shiftMask, xK_r), spawn "/home/mindaugas/.scripts/shutdown.sh")
       , ((mod4Mask, xK_z), spawn "/home/mindaugas/.scripts/emenu_run")
+      , ((mod4Mask, xK_x), spawn "/home/mindaugas/.scripts/mpdmenu")
       , ((mod4Mask, xK_F1), spawn "/home/mindaugas/.scripts/dmenu_fm")
       , ((mod4Mask, xK_w), spawn "/home/mindaugas/.scripts/screenshot")
       , ((0, xK_Print), spawn "/home/mindaugas/.scripts/select-screenshot")

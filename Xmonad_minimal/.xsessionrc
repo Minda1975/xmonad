@@ -7,7 +7,7 @@ xrdb -merge .Xresources
 export GTK_OVERLAY_SCROLLING=0
 # Fire up apps
 xsetroot -cursor_name left_ptr &
-xsetroot -solid "#002b36" &
+feh --bg-fill /home/mindaugas/Pictures/quiet-winter.jpg &
 setxkbmap -layout "us,lt,ru" -option "grp:ctrl_alt_toggle" &
 
 exec xmonad

@@ -31,16 +31,13 @@ Config { font = "xft:sans:pixelsize=11:antialias=true:hinting=true"
                              , "--high"     , "#657b83"
                              ] 50
                           
-        -- mpd indicator  
-        , Run Com "/home/mindaugas/.scripts/mpd" [] "mympd" 10    
-               
+          
+             
            
         -- volume indicator                    
         , Run Com "/home/mindaugas/.scripts/volume.sh" [] "myvolume" 10 
         
-         -- moc indicator                    
-        , Run Com "/home/mindaugas/.scripts/music" [] "mymusic" 10
-        
+                 
         -- cmus indicator                    
         , Run Com "/home/mindaugas/.scripts/xsetcmus.sh" [] "myxsetcmus" 10
         
@@ -54,5 +51,5 @@ Config { font = "xft:sans:pixelsize=11:antialias=true:hinting=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ <fc=#93a1a1>%mymusic%</fc>  <fc=#93a1a1>%myxsetcmus%</fc>  <fc=#93a1a1>%dynnetwork%</fc> <fc=#93a1a1> <fc=#93a1a1>%myvolume%</fc>  <fc=#93a1a1> </fc><fc=#93a1a1>%cpu%</fc> <fc=#93a1a1>%coretemp%</fc> <fc=#93a1a1>%mympd%</fc> <fc=#93a1a1> </fc><fc=#93a1a1>%date%</fc> %kbd%</fc> "
+       , template = " %StdinReader% }{ <fc=#93a1a1>%myxsetcmus%</fc>  <fc=#93a1a1>%dynnetwork%</fc> <fc=#93a1a1> <fc=#93a1a1>%myvolume%</fc>  <fc=#93a1a1> </fc><fc=#93a1a1>%cpu%</fc> <fc=#93a1a1>%coretemp%</fc>  <fc=#93a1a1> </fc><fc=#93a1a1>%date%</fc> %kbd%</fc> "
        }

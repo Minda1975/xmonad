@@ -1,0 +1,41 @@
+# A basic .muttrc for use with Yandex
+
+# Change the following six lines to match your Yandex account details
+set imap_user = @yandex.ru
+set imap_pass = password
+set smtp_url = smtps://usernamehere@smtp.yandex.ru:465/
+set smtp_pass = password
+set from = @yandex.ru
+set realname = realname
+
+# Change the following line to a different editor you prefer.
+set editor = "nano"
+
+# Basic config, you can leave this as is
+set folder = imaps://imap.yandex.ru:993
+set spoolfile = +INBOX
+set imap_check_subscribed
+set hostname = yandex.ru
+set mail_check = 90
+set timeout = 10
+set imap_keepalive = 180
+set imap_idle=yes
+set postponed = +[Yandex]/Drafts
+set record = "+[Yandex]/Sent Mail"
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+set move = no
+set include
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+auto_view text/html
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop 

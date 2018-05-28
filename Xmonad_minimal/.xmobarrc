@@ -1,7 +1,7 @@
 -- vim: ft=haskell
-Config { font = "xft:sans:pixelsize=11:antialias=true:hinting=true"
-       , bgColor = "#002b36" --"#1d1f21" --"#1c1c1c"
-       , fgColor = "#657b83"
+Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
+       , bgColor = "#FFFFFF" 
+       , fgColor = "#000000"
        , position = Top
        --, position = TopSize C 100 35 -- use this if only using one monitor
        --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 
@@ -11,24 +11,24 @@ Config { font = "xft:sans:pixelsize=11:antialias=true:hinting=true"
        , border = NoBorder
        , borderColor = "black"
        , commands = [ Run Cpu
-                              ["-L","3","-H","50","--normal","#657b83","--high","#657b83"] 10 
+                              ["-L","3","-H","50","--normal","#000000","--high","#FF0000"] 10 
                              
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
                              , "--Low"      , "1000"       -- units: B/s
                              , "--High"     , "5000"       -- units: B/s
-                             , "--low"      , "#657b83"
-                             , "--normal"   , "#657b83"
-                             , "--high"     , "#657b83"
+                             , "--low"      , "#000000"
+                             , "--normal"   , "#008000"
+                             , "--high"     , "#FF0000"
                              ] 10
                              
         -- cpu core temperature monitor
         , Run CoreTemp       [ "--template" , "± <core0>°±<core1>°"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
-                             , "--low"      , "#657b83"
-                             , "--normal"   , "#657b83"
-                             , "--high"     , "#657b83"
+                             , "--low"      , "#000000"
+                             , "--normal"   , "#008000"
+                             , "--high"     , "#FF0000"
                              ] 50
                           
           
@@ -42,8 +42,8 @@ Config { font = "xft:sans:pixelsize=11:antialias=true:hinting=true"
         , Run Com "/home/mindaugas/.scripts/xsetcmus.sh" [] "myxsetcmus" 10
         
          -- keyboard layout indicator
-        , Run Kbd            [ ("us(dvorak)" , "<fc=#93a1a1>DV</fc>")
-                             , ("us"         , "<fc=#93a1a1>US</fc>")
+        , Run Kbd            [ ("us(dvorak)" , "<fc=#493D26>DV</fc>")
+                             , ("us"         , "<fc=#493D26>US</fc>")
                              ]                
                            
                     , Run Date "%a %m/%d %H:%M" "date" 10
@@ -51,5 +51,5 @@ Config { font = "xft:sans:pixelsize=11:antialias=true:hinting=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ <fc=#93a1a1>%myxsetcmus%</fc>  <fc=#93a1a1>%dynnetwork%</fc> <fc=#93a1a1> <fc=#93a1a1>%myvolume%</fc>  <fc=#93a1a1> </fc><fc=#93a1a1>%cpu%</fc> <fc=#93a1a1>%coretemp%</fc>  <fc=#93a1a1> </fc><fc=#93a1a1>%date%</fc> %kbd%</fc> "
+       , template = " %StdinReader% }{ <fc=#313D47>%myxsetcmus%</fc>  <fc=#26334A>%dynnetwork%</fc> <fc=#26334A> <fc=#26334A>%myvolume%</fc>  <fc=#26334A> </fc><fc=#26334A>%cpu%</fc> <fc=#26334A>%coretemp%</fc>  <fc=#493D26> </fc><fc=#493D26>%date%</fc> %kbd%</fc> "
        }

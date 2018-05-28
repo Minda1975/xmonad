@@ -1,6 +1,10 @@
 import XMonad
 import XMonad.Hooks.EwmhDesktops
 import System.Exit
+import XMonad.Layout.Tabbed
+import XMonad.Layout.Circle
+import XMonad.Layout.ThreeColumns
+import XMonad.Actions.NoBorders
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -9,9 +13,7 @@ import XMonad.Util.Scratchpad (scratchpadSpawnAction, scratchpadManageHook, scra
 import qualified Data.Map as M
 import XMonad.Prompt
 import XMonad.Prompt.ConfirmPrompt
-import XMonad.Layout.NoBorders
-import XMonad.Layout.StackTile
-import XMonad.Layout.Magnifier
+import XMonad.Prompt.Shell
 import XMonad.Actions.CycleWS
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Util.Run(spawnPipe)
@@ -25,19 +27,22 @@ main = do
       { modMask            = mod4Mask
       , manageHook         = manageDocks <+> myManageHookFloat <+> scratchpadManageHook (W.RationalRect 0.25 0.375 0.5 0.35)
       , terminal           = "terminator"
-      , focusFollowsMouse = False
-      , borderWidth        = 2
+      , focusFollowsMouse = True
+      , borderWidth        = 1
       , workspaces = myWorkspaces
-      , normalBorderColor = "#002b36"
-      , focusedBorderColor = "#657b83"
-      , layoutHook         = smartBorders $ myLayoutHook
+      , normalBorderColor = "#333333"
+      , focusedBorderColor = "#FF0000"
+      , layoutHook = avoidStruts  $  myLayout
       -- this must be in this order, docksEventHook must be last
       , handleEventHook    = handleEventHook def <+> fullscreenEventHook <+> docksEventHook
       , logHook            = dynamicLogWithPP xmobarPP
           { ppOutput          = hPutStrLn xmproc
-          , ppTitle           = xmobarColor xmobarTitleColor "" . shorten 50
-          , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
-          , ppSep = "   "
+          , ppTitle = xmobarColor "#000000" "" . shorten 80
+          , ppCurrent = xmobarColor "#000000" "" . wrap "[" "]"
+          , ppUrgent =  xmobarColor "#5F2800" "" . wrap "*" "*"
+          , ppLayout = xmobarColor "#7D0541" ""
+          , ppHidden = xmobarColor "#000000" ""
+          , ppSep = "<fc=#000000> | </fc>"
           }
       , startupHook        = setWMName "LG3D"
       } `additionalKeys`
@@ -45,7 +50,7 @@ main = do
       , ((mod4Mask, xK_grave), scratchpadSpawnAction def  {terminal = "xterm"}) 
       , ((mod4Mask .|. shiftMask, xK_r), spawn "/home/mindaugas/.scripts/shutdown.sh")
       , ((mod4Mask, xK_z), spawn "/home/mindaugas/.scripts/emenu_run")
-      , ((mod4Mask, xK_x), spawn "/home/mindaugas/.scripts/mpdmenu")
+      , ((mod4Mask, xK_x), shellPrompt myXPConfig)
       , ((mod4Mask, xK_F1), spawn "/home/mindaugas/.scripts/dmenu_fm")
       , ((mod4Mask, xK_w), spawn "/home/mindaugas/.scripts/screenshot")
       , ((0, xK_Print), spawn "/home/mindaugas/.scripts/select-screenshot")
@@ -56,41 +61,56 @@ main = do
       , ((mod4Mask .|. shiftMask, xK_Up),    shiftToPrev >> prevWS)
       , ((mod4Mask,               xK_a),     toggleWS)
       , ((mod4Mask,                xK_m    ), viewEmptyWorkspace)
-      , ((mod4Mask .|. shiftMask,  xK_m    ), tagToEmptyWorkspace)
-      , ((mod4Mask .|. controlMask              , xK_equal ), sendMessage MagnifyMore)
-      , ((mod4Mask .|. controlMask              , xK_minus), sendMessage MagnifyLess)
-      , ((mod4Mask .|. controlMask              , xK_o    ), sendMessage ToggleOff  )
-      , ((mod4Mask .|. controlMask .|. shiftMask, xK_o    ), sendMessage ToggleOn   )
-      , ((mod4Mask .|. controlMask              , xK_m    ), sendMessage Toggle     )
+      , ((mod4Mask,  xK_g ),   withFocused toggleBorder)
       , ((mod4Mask .|. shiftMask, xK_f), spawn "terminator -e /usr/bin/ranger") ]
 
              
-
-myLayoutHook = avoidStruts $ smartBorders $ magnifier (Tall 1 (3/100) (1/2)) ||| Full ||| StackTile 1 (3/100) (1/2) 
-                     
+                    
 myWorkspaces = ["1:term","2:web","3:code","4:doc","5:media"] ++ map show [6..9]    
     
 myManageHookFloat = composeAll
     [ className =? "mpv"              --> doCenterFloat
-    , className =? "feh"              --> doCenterFloat
     , isDialog                        --> doCenterFloat
     ]
     
     
 myXPConfig = def
-  { position          = Top
+  { position          = Bottom
   , alwaysHighlight   = True
-  , bgColor             = "#002b36"
-  , fgColor             = "#657b83"
-  , bgHLight            = "#002b36"
-  , fgHLight            = "#268bd2"
+  , bgColor             = "#FFFFFF"
+  , fgColor             = "#000000"
+  , bgHLight            = "#000000"
+  , fgHLight            = "#FFFFFF"
   , promptBorderWidth = 0
-  , font              = "xft:sans:pixelsize=11:antialias=true:hinting=true"
-}
+  , font              = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
+  }
 
--- Color of current window title in xmobar.
-xmobarTitleColor = "#859900"
+myLayout = avoidStruts $
+           tiled
+           ||| Mirror tiled
+           ||| Full
+           ||| tabbed shrinkText myTheme
+           ||| threeCol
+           |||Circle
+  where
+     -- default tiling algorithm partitions the screen into two panes
+     tiled   = Tall nmaster delta ratio
 
--- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#CEFFAC"
+     threeCol = ThreeCol nmaster delta ratio
+ 
+     -- The default number of windows in the master pane
+     nmaster = 1
+ 
+     -- Default proportion of screen occupied by master pane
+     ratio   = 1/2
+ 
+     -- Percent of screen to increment by when resizing panes
+     delta   = 2/100
 
+--- My Theme For Tabbed layout
+myTheme = def           { decoHeight = 16
+                        , activeColor = "#a6c292"
+                        , activeBorderColor = "#a6c292"
+                        , activeTextColor = "#000000"
+                        , inactiveBorderColor = "#000000"
+                        }

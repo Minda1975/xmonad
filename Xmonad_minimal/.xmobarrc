@@ -1,5 +1,5 @@
 -- vim: ft=haskell
-Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
+Config { font = "xft:Input Mono Compressed NF:size=9:medium:antialias=true"
        , bgColor = "#FFFFFF" 
        , fgColor = "#000000"
        , position = Top
@@ -51,5 +51,5 @@ Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ <fc=#313D47>%myxsetcmus%</fc>  <fc=#26334A>%dynnetwork%</fc> <fc=#26334A> <fc=#26334A>%myvolume%</fc>  <fc=#26334A> </fc><fc=#26334A>%cpu%</fc> <fc=#26334A>%coretemp%</fc>  <fc=#493D26> </fc><fc=#493D26>%date%</fc> %kbd%</fc> "
+       , template = " %StdinReader% }{ <fc=#2F796C>%myxsetcmus%</fc>  <fc=#26334A>%dynnetwork%</fc> <fc=#26334A> <fc=#26334A>%myvolume%</fc>  <fc=#26334A> </fc><fc=#26334A>%cpu%</fc> <fc=#26334A>%coretemp%</fc>  <fc=#493D26> </fc><fc=#0D47CE>%date%</fc> %kbd%</fc> "
        }

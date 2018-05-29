@@ -37,12 +37,12 @@ main = do
       , handleEventHook    = handleEventHook def <+> fullscreenEventHook <+> docksEventHook
       , logHook            = dynamicLogWithPP xmobarPP
           { ppOutput          = hPutStrLn xmproc
-          , ppTitle = xmobarColor "#000000" "" . shorten 80
-          , ppCurrent = xmobarColor "#000000" "" . wrap "[" "]"
+          , ppTitle = xmobarColor "#0000FF" "" . shorten 80
+          , ppCurrent = xmobarColor "#1589FF" "" . wrap "[" "]"
           , ppUrgent =  xmobarColor "#5F2800" "" . wrap "*" "*"
-          , ppLayout = xmobarColor "#7D0541" ""
-          , ppHidden = xmobarColor "#000000" ""
-          , ppSep = "<fc=#000000> | </fc>"
+          , ppLayout = xmobarColor "#2B65EC" ""
+          , ppHidden = xmobarColor "#ED2BE7" ""
+          , ppSep = "<fc=#D32BED> | </fc>"
           }
       , startupHook        = setWMName "LG3D"
       } `additionalKeys`
@@ -82,7 +82,7 @@ myXPConfig = def
   , bgHLight            = "#000000"
   , fgHLight            = "#FFFFFF"
   , promptBorderWidth = 0
-  , font              = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
+  , font              = "xft:FuraMono NF:size=9:medium:antialias=true"
   }
 
 myLayout = avoidStruts $

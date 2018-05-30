@@ -1,9 +1,6 @@
 import XMonad
 import XMonad.Hooks.EwmhDesktops
 import System.Exit
-import XMonad.Layout.Tabbed
-import XMonad.Layout.Circle
-import XMonad.Layout.ThreeColumns
 import XMonad.Actions.NoBorders
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -22,27 +19,24 @@ import System.IO
 import XMonad.Hooks.SetWMName
  
 main = do
-    xmproc <- spawnPipe "xmobar"
+    xmproc <- spawnPipe ("xmobar " ++ myXmobarrc)
     xmonad $ ewmh def
       { modMask            = mod4Mask
       , manageHook         = manageDocks <+> myManageHookFloat <+> scratchpadManageHook (W.RationalRect 0.25 0.375 0.5 0.35)
-      , terminal           = "terminator"
+      , terminal           = "sakura"
       , focusFollowsMouse = True
       , borderWidth        = 1
       , workspaces = myWorkspaces
-      , normalBorderColor = "#333333"
-      , focusedBorderColor = "#FF0000"
+      , normalBorderColor = "#7c7c7c"
+      , focusedBorderColor = "#ffb6b0"
       , layoutHook = avoidStruts  $  myLayout
       -- this must be in this order, docksEventHook must be last
       , handleEventHook    = handleEventHook def <+> fullscreenEventHook <+> docksEventHook
       , logHook            = dynamicLogWithPP xmobarPP
           { ppOutput          = hPutStrLn xmproc
-          , ppTitle = xmobarColor "#0000FF" "" . shorten 80
-          , ppCurrent = xmobarColor "#1589FF" "" . wrap "[" "]"
-          , ppUrgent =  xmobarColor "#5F2800" "" . wrap "*" "*"
-          , ppLayout = xmobarColor "#2B65EC" ""
-          , ppHidden = xmobarColor "#ED2BE7" ""
-          , ppSep = "<fc=#D32BED> | </fc>"
+          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 80
+          , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
+          , ppSep = "   "
           }
       , startupHook        = setWMName "LG3D"
       } `additionalKeys`
@@ -52,6 +46,7 @@ main = do
       , ((mod4Mask, xK_z), spawn "/home/mindaugas/.scripts/emenu_run")
       , ((mod4Mask, xK_x), shellPrompt myXPConfig)
       , ((mod4Mask, xK_F1), spawn "/home/mindaugas/.scripts/dmenu_fm")
+      , ((mod4Mask, xK_F2), spawn "/home/mindaugas/.scripts/mpdmenu")
       , ((mod4Mask, xK_w), spawn "/home/mindaugas/.scripts/screenshot")
       , ((0, xK_Print), spawn "/home/mindaugas/.scripts/select-screenshot")
       , ((mod4Mask .|. shiftMask, xK_w), spawn "firefox")
@@ -62,14 +57,16 @@ main = do
       , ((mod4Mask,               xK_a),     toggleWS)
       , ((mod4Mask,                xK_m    ), viewEmptyWorkspace)
       , ((mod4Mask,  xK_g ),   withFocused toggleBorder)
-      , ((mod4Mask .|. shiftMask, xK_f), spawn "terminator -e /usr/bin/ranger") ]
+      , ((mod4Mask .|. shiftMask, xK_f), spawn "sakura -e /usr/bin/ranger") ]
 
              
                     
-myWorkspaces = ["1:term","2:web","3:code","4:doc","5:media"] ++ map show [6..9]    
+myWorkspaces = ["1:term","2:web","3:code","4:doc","5:media"] ++ map show [6..9] 
+ 
+myXmobarrc = "~/.xmonad/xmobarrc"  
     
 myManageHookFloat = composeAll
-    [ className =? "mpv"              --> doCenterFloat
+    [ className =? "MPlayer"              --> doCenterFloat
     , isDialog                        --> doCenterFloat
     ]
     
@@ -77,40 +74,31 @@ myManageHookFloat = composeAll
 myXPConfig = def
   { position          = Bottom
   , alwaysHighlight   = True
-  , bgColor             = "#FFFFFF"
-  , fgColor             = "#000000"
+  , bgColor             = "#7C7C7C"
+  , fgColor             = "#CEFFAC"
   , bgHLight            = "#000000"
-  , fgHLight            = "#FFFFFF"
+  , fgHLight            = "#7C7C7C"
   , promptBorderWidth = 0
-  , font              = "xft:FuraMono NF:size=9:medium:antialias=true"
+  , font              = "xft:Sans:size=9:medium:antialias=true"
   }
 
 myLayout = avoidStruts $
-           tiled
-           ||| Mirror tiled
-           ||| Full
-           ||| tabbed shrinkText myTheme
-           ||| threeCol
-           |||Circle
+           tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
 
-     threeCol = ThreeCol nmaster delta ratio
- 
      -- The default number of windows in the master pane
      nmaster = 1
- 
+
      -- Default proportion of screen occupied by master pane
      ratio   = 1/2
- 
-     -- Percent of screen to increment by when resizing panes
-     delta   = 2/100
 
---- My Theme For Tabbed layout
-myTheme = def           { decoHeight = 16
-                        , activeColor = "#a6c292"
-                        , activeBorderColor = "#a6c292"
-                        , activeTextColor = "#000000"
-                        , inactiveBorderColor = "#000000"
-                        }
+     -- Percent of screen to increment by when resizing panes
+     delta = 3/100
+
+-- Color of current window title in xmobar.
+xmobarTitleColor = "#FFB6B0"
+
+-- Color of current workspace in xmobar.
+xmobarCurrentWorkspaceColor = "#CEFFAC"

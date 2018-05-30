@@ -1,55 +1,40 @@
--- vim: ft=haskell
-Config { font = "xft:Input Mono Compressed NF:size=9:medium:antialias=true"
-       , bgColor = "#FFFFFF" 
-       , fgColor = "#000000"
-       , position = Top
-       --, position = TopSize C 100 35 -- use this if only using one monitor
-       --, position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 } --manually position bar to display on left monitor 
-       , lowerOnStart = False
-       , allDesktops = True
-       , overrideRedirect = False
-       , border = NoBorder
-       , borderColor = "black"
-       , commands = [ Run Cpu
-                              ["-L","3","-H","50","--normal","#000000","--high","#FF0000"] 10 
-                             
-        -- network activity monitor (dynamic interface resolution)
-        , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
-                             , "--Low"      , "1000"       -- units: B/s
-                             , "--High"     , "5000"       -- units: B/s
-                             , "--low"      , "#000000"
-                             , "--normal"   , "#008000"
-                             , "--high"     , "#FF0000"
-                             ] 10
-                             
-        -- cpu core temperature monitor
-        , Run CoreTemp       [ "--template" , "± <core0>°±<core1>°"
-                             , "--Low"      , "70"        -- units: °C
-                             , "--High"     , "80"        -- units: °C
-                             , "--low"      , "#000000"
-                             , "--normal"   , "#008000"
-                             , "--high"     , "#FF0000"
-                             ] 50
-                          
-          
-             
-           
-        -- volume indicator                    
-        , Run Com "/home/mindaugas/.scripts/volume.sh" [] "myvolume" 10 
-        
-                 
-        -- cmus indicator                    
-        , Run Com "/home/mindaugas/.scripts/xsetcmus.sh" [] "myxsetcmus" 10
-        
-         -- keyboard layout indicator
-        , Run Kbd            [ ("us(dvorak)" , "<fc=#493D26>DV</fc>")
-                             , ("us"         , "<fc=#493D26>US</fc>")
-                             ]                
-                           
-                    , Run Date "%a %m/%d %H:%M" "date" 10
-                    , Run StdinReader
-                    ]
-       , sepChar = "%"
-       , alignSep = "}{"
-       , template = " %StdinReader% }{ <fc=#2F796C>%myxsetcmus%</fc>  <fc=#26334A>%dynnetwork%</fc> <fc=#26334A> <fc=#26334A>%myvolume%</fc>  <fc=#26334A> </fc><fc=#26334A>%cpu%</fc> <fc=#26334A>%coretemp%</fc>  <fc=#493D26> </fc><fc=#0D47CE>%date%</fc> %kbd%</fc> "
-       }
+-- xmobar config used by Vic Fryzel
+-- Author: Vic Fryzel
+-- https://github.com/vicfryzel/xmonad-config
+
+-- This xmobar config is for a single 4k display (3840x2160) and meant to be
+-- used with the stalonetrayrc-single config.
+--
+-- If you're using a single display with a different resolution, adjust the
+-- position argument below using the given calculation.
+Config {
+    -- Position xmobar along the top, with a stalonetray in the top right.
+    -- Add right padding to xmobar to ensure stalonetray and xmobar don't
+    -- overlap. stalonetrayrc-single is configured for 12 icons, each 23px
+    -- wide. 
+    -- right_padding = num_icons * icon_size
+    -- right_padding = 12 * 23 = 276
+    -- Example: position = TopP 0 276
+    position = Top,
+    font = "xft:sans-8",
+    bgColor = "#000000",
+    fgColor = "#ffffff",
+    lowerOnStart = False,
+    overrideRedirect = False,
+    allDesktops = True,
+    persistent = True,
+    commands = [
+        Run CpuFreq ["-t","Freq:<cpu0>|<cpu1>GHz", "-L","0", "-H","2", "-l","#FFB6B0", "-n","#CEFFAC", "-h","#FFFFCC"] 50,
+        Run Memory ["-t","Mem: <usedratio>%","-H","8192","-L","4096","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
+        Run CoreTemp ["-t","Temp:<core0>|<core1>C","-L","40","-H","60","-l","#FFB6B0","-n","#CEFFAC","-h","#FFFFCC"] 50,
+        Run Network "enp8s0" ["-t","Net: <rx>, <tx>","-H","200","-L","10","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
+        Run Date "%a %m/%d %H:%M" "date" 10,
+        Run Com "/home/mindaugas/.scripts/getMasterVolume" [] "volumelevel" 10,
+        Run Com "/home/mindaugas/.scripts/xsetcmus.sh" [] "myxsetcmus" 10,
+        Run Com "/home/mindaugas/.scripts/mpd" [] "mpdmusic" 10,
+        Run StdinReader
+    ],
+    sepChar = "%",
+    alignSep = "}{",
+    template = "%StdinReader% }{ %myxsetcmus% %mpdmusic% %cpufreq% %memory%   %coretemp%  %enp8s0%   Vol: <fc=#b2b2ff>%volumelevel%</fc>   <fc=#FFFFCC>%date%</fc> "
+}

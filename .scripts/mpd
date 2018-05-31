@@ -1,8 +1,8 @@
 #! /bin/bash
 
-TCOL="#1589FF"   
-ACOL="#FFA62F"   
-PCOL="#FBF6D9"
+TCOL="#7587a6"   
+ACOL="#afc4db"   
+PCOL="#a7a7a7"
 
 MPDSTATE=$(mpc | sed -e '2 !d' -e 's/^.*\[//' -e 's/\].*$//')
 

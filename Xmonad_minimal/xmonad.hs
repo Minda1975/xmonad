@@ -12,6 +12,7 @@ import XMonad.Prompt
 import XMonad.Prompt.ConfirmPrompt
 import XMonad.Prompt.Shell
 import XMonad.Actions.CycleWS
+import XMonad.Layout.Spacing
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
@@ -27,8 +28,8 @@ main = do
       , focusFollowsMouse = True
       , borderWidth        = 1
       , workspaces = myWorkspaces
-      , normalBorderColor = "#7c7c7c"
-      , focusedBorderColor = "#ffb6b0"
+      , normalBorderColor = "#5f5a60"
+      , focusedBorderColor = "#7587a6"
       , layoutHook = avoidStruts  $  myLayout
       -- this must be in this order, docksEventHook must be last
       , handleEventHook    = handleEventHook def <+> fullscreenEventHook <+> docksEventHook
@@ -67,6 +68,7 @@ myXmobarrc = "~/.xmonad/xmobarrc"
     
 myManageHookFloat = composeAll
     [ className =? "MPlayer"              --> doCenterFloat
+    , className =? "feh"              --> doCenterFloat
     , isDialog                        --> doCenterFloat
     ]
     
@@ -74,15 +76,15 @@ myManageHookFloat = composeAll
 myXPConfig = def
   { position          = Bottom
   , alwaysHighlight   = True
-  , bgColor             = "#7C7C7C"
-  , fgColor             = "#CEFFAC"
-  , bgHLight            = "#000000"
-  , fgHLight            = "#7C7C7C"
+  , bgColor             = "#1e1e1e"
+  , fgColor             = "#a7a7a7"
+  , bgHLight            = "#7587a6"
+  , fgHLight            = "#1e1e1e"
   , promptBorderWidth = 0
-  , font              = "xft:Sans:size=9:medium:antialias=true"
+  , font              = "xft:Input Mono Compressed:size=9:medium:antialias=true"
   }
 
-myLayout = avoidStruts $
+myLayout = avoidStruts $ spacing 8 $
            tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
@@ -98,7 +100,7 @@ myLayout = avoidStruts $
      delta = 3/100
 
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#FFB6B0"
+xmobarTitleColor = "#7587a6"
 
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#CEFFAC"
+xmobarCurrentWorkspaceColor = "#8f9d6a"

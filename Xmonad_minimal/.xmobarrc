@@ -16,18 +16,18 @@ Config {
     -- right_padding = 12 * 23 = 276
     -- Example: position = TopP 0 276
     position = Top,
-    font = "xft:sans-8",
-    bgColor = "#000000",
-    fgColor = "#ffffff",
+    font = "xft:Input Mono Compressed:size=8:bold:antialias=true",
+    bgColor = "#1e1e1e",
+    fgColor = "#a7a7a7",
     lowerOnStart = False,
     overrideRedirect = False,
     allDesktops = True,
     persistent = True,
     commands = [
-        Run CpuFreq ["-t","Freq:<cpu0>|<cpu1>GHz", "-L","0", "-H","2", "-l","#FFB6B0", "-n","#CEFFAC", "-h","#FFFFCC"] 50,
-        Run Memory ["-t","Mem: <usedratio>%","-H","8192","-L","4096","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
-        Run CoreTemp ["-t","Temp:<core0>|<core1>C","-L","40","-H","60","-l","#FFB6B0","-n","#CEFFAC","-h","#FFFFCC"] 50,
-        Run Network "enp8s0" ["-t","Net: <rx>, <tx>","-H","200","-L","10","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
+        Run CpuFreq ["-t","Freq:<cpu0>|<cpu1>GHz", "-L","0", "-H","2", "-l","#a7a7a7", "-n","#8f9d6a", "-h","#cf6a4c"] 50,
+        Run Memory ["-t","Mem: <usedratio>%","-H","8192","-L","4096","-h","#a7a7a7","-l","#8f9d6a","-n","#cf6a4c"] 10,
+        Run CoreTemp ["-t","Temp:<core0>|<core1>C","-L","40","-H","60","-l","#a7a7a7","-n","#8f9d6a","-h","#cf6a4c"] 50,
+        Run Network "enp8s0" ["-t","Net: <rx>, <tx>","-H","200","-L","10","-h","#a7a7a7","-l","#8f9d6a","-n","#cf6a4c"] 10,
         Run Date "%a %m/%d %H:%M" "date" 10,
         Run Com "/home/mindaugas/.scripts/getMasterVolume" [] "volumelevel" 10,
         Run Com "/home/mindaugas/.scripts/xsetcmus.sh" [] "myxsetcmus" 10,
@@ -36,5 +36,5 @@ Config {
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{ %myxsetcmus% %mpdmusic% %cpufreq% %memory%   %coretemp%  %enp8s0%   Vol: <fc=#b2b2ff>%volumelevel%</fc>   <fc=#FFFFCC>%date%</fc> "
+    template = "%StdinReader% }{ %myxsetcmus% %mpdmusic% %cpufreq% %memory%   %coretemp%  %enp8s0%   Vol: <fc=#7587a6>%volumelevel%</fc>   <fc=#afc4db>%date%</fc> "
 }

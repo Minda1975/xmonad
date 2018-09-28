@@ -1,12 +1,12 @@
 # A basic .muttrc for use with Yandex
 
 # Change the following six lines to match your Yandex account details
-set imap_user = m.celiesius@yandex.ru
-set imap_pass = minda1975
-set smtp_url = smtps://m.celiesius@smtp.yandex.ru:465/
-set smtp_pass = minda1975
-set from = m.celiesius@yandex.ru
-set realname = m.celiesius
+set imap_user = email adress
+set imap_pass = password
+set smtp_url = smtps://firstandsecondname@smtp.yandex.ru:465/
+set smtp_pass = password
+set from = emailadress
+set realname = realname
 
 # Change the following line to a different editor you prefer.
 set editor = "nano"

@@ -1,131 +1,43 @@
-xterm*faceName: Fira Code
-xterm*faceSize: 10
-xterm*renderFont: true
+#include ".xrdb/color/nord"
+#include ".xrdb/rofi/nord"
 
 
-! VT Font Menu: Unreadable
-xterm*faceSize1: 8
-! VT font menu: Tiny
-xterm*faceSize2: 10
-! VT font menu: Medium
-xterm*faceSize3: 12
-! VT font menu: Large
-xterm*faceSize4: 16
-! VT font menu: Huge
-xterm*faceSize5: 22
+URxvt.font: xft:FantasqueSansMono Nerd Font:size=10 :antialias=true:autohint=false
+URxvt.boldFont: xft:FantasqueSansMono Nerd Font:Bold:size=10 :antialias=true:autohint=false
+URxvt.geometry: 		72x18
+URxvt*letterSpace: 	    0
+URxvt.lineSpace: 		0
+URxvt*internalBorder:   24
+URxvt*externalBorder:   0
+URxvt*depth:            32
+URxvt*saveline:         2000
+URxvt*termName:         rxvt-256color
+URxvt*iso14755:         false
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  false
+URxvt.copyCommand:      xclip -i -selection clipboard
+URxvt.pasteCommand:     xclip -o -selection clipboard
+URxvt.keysym.Shift-Up:	command:\033]720;1\007
+URxvt.keysym.Shift-Down:command:\033]721;1\007
+URxvt.urlLauncher:      firefox
+URxvt.underlineURLs:    true
+URxvt.urlButton:        1
+URxvt*buffered:         false          
+URxvt.urgentOnBell: 	True
 
-xterm*VT100.Translations: #override \
-    Ctrl <Key> minus: smaller-vt-font() \n\
-    Ctrl <Key> plus: larger-vt-font() \n\
-    Ctrl <Key> 0: set-vt-font(d)
 
 
 
-! Only select text
-xterm*highlightSelection: true
-! Remove trailing spaces
-! font settings --------------------------------------------------------------
+! ------------------------------------------------------------------------------
+! Xft Font Configuration
+! ------------------------------------------------------------------------------
 
-Xft.autohint: true
-Xft.antialias: true
-Xft.hinting: true
-Xft.hintstyle: hintslight
-!Xft.dpi: 96
-Xft.rgba: rgb
+Xft.autohint: 0
 Xft.lcdfilter: lcddefault
-
-
-xterm*trimSelection: true
-
-! Lines of output that you can scroll back over
-xterm*saveLines: 4096
-! Turn the scrollbar on, and put it on the right
-xterm*scrollBar: false
-xterm*rightScrollBar: false
-
-! Do not scroll when there is new input e.g. tail -f /var/syslog
-xterm*scrollTtyOutput: false
-
-! Theme: Tempus Warp
-! Description: Dark theme with a vibrant palette (WCAG AA compliant)
-! Author: Protesilaos Stavrou (https://protesilaos.com)
-xterm*background: #141a19
-xterm*foreground: #928f90
-xterm*cursorColor: #928f90
-xterm*color0: #141a19
-xterm*color1: #ff1414
-xterm*color2: #009600
-xterm*color3: #928100
-xterm*color4: #4f76ff
-xterm*color5: #dd38bc
-xterm*color6: #358aaa
-xterm*color7: #927b80
-xterm*color8: #201428
-xterm*color9: #ff5500
-xterm*color10: #3aa43a
-xterm*color11: #b38a00
-xterm*color12: #8082ff
-xterm*color13: #d159fd
-xterm*color14: #1da190
-xterm*color15: #928f90
-
-
-
-
-
-
-
-
-! urxvt -------------------------------------------
-
-URxvt.font: xft:Fira Code:size=10 :antialias=true:autohint=false
-URxvt.boldFont: xft:Fira Code:Bold:size=10 :antialias=true:autohint=false
-
-! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
-
-! Window size and position
-!URxvt*geometry: 60x22+50+100
-! Window size, let the Window Manager position it
-URxvt.geometry: 80x28
-
-URxvt.scrollBar: false
-
-! scrollback buffer lines - 65535 is max (64 is default)
-URxvt.saveLines:8192
-
-
-! Clickble URLs
-URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/chromium
-URxvt.matcher.button: 3
-
-
-! Theme: Tempus Future
-! Description: Dark theme with colours inspired by concept art of outer space (WCAG AAA compliant)
-! Author: Protesilaos Stavrou (https://protesilaos.com)
-URxvt*background: #18161d
-URxvt*foreground: #a4a0ac
-URxvt*cursorColor: #a4a0ac
-URxvt*cursorColor2: #18161d
-URxvt*color0: #18161d
-URxvt*color1: #ff7780
-URxvt*color2: #68b183
-URxvt*color3: #bda014
-URxvt*color4: #54a5ff
-URxvt*color5: #da89b2
-URxvt*color6: #79a8c3
-URxvt*color7: #bd9b87
-URxvt*color8: #001b1a
-URxvt*color9: #ef873d
-URxvt*color10: #08b885
-URxvt*color11: #d39710
-URxvt*color12: #a294fe
-URxvt*color13: #ec7aca
-URxvt*color14: #4ab0b9
-URxvt*color15: #a4a0ac
-
-
-
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 
 
 

@@ -10,7 +10,7 @@
 # (Requires minor hand-editing to remove '.0' for whole numbers.
 #
 #
-bars=$(amixer get Master | awk -F'[]%[]' '/%/ {if ($7 == "off") { print "MM" } else { print $2/10 }}' | head -n 1)
+bars=$(amixer get Headphone | awk -F'[]%[]' '/%/ {if ($7 == "off") { print "MM" } else { print $2/10 }}' | head -n 1)
 
 case $bars in
     0) bar='----------' ;;

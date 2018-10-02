@@ -29,6 +29,7 @@ Screenshots
 ![Screenshot](screen_5.png?raw=true "Apps")
 ![Screenshot](screen_6.png?raw=true "Icons")
 ![Screenshot](screen_7.png?raw=true "Geany")
+![Screenshot](screen_8.png?raw=true "PcManFM")
 
 
                                                    LICENSE

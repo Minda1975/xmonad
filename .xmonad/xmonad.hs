@@ -63,7 +63,7 @@ import Graphics.X11.ExtraTypes.XF86
 myWorkspaces = ["1", "2", "3", "4", "5", "6", "7"]
 modm = mod4Mask
 
--- Simpler Color Setting
+-- Nord Colors
 colorViolet       = "#89d0bA"
 colorGreen      = "#a3be8c"
 colorRed        = "#bf616a"
@@ -220,15 +220,15 @@ main = do
          ("M-<Return>", dwmpromote) 
        -- Screenshot
        , ("M-w", spawn "/home/mindaugas/.scripts/screenshot")
-       -- Launch simple file manager)
+       -- Launch IDE)
        , ("C-<Tab>", spawn "geany")
        -- Launch terminal
        , ("M-S-<Return>", spawn "urxvt")
-       -- Launch file manager
+       -- Launch CLI file manager
        , ("M-S-f", spawn "urxvt -e /usr/bin/ranger")
        -- Launch web browser
        , ("M-S-w", spawn "firefox")
-       -- Launch dmenu for launching applicatiton
+       -- Launch Rofi and other stuff
        , ("M-p", spawn "/home/mindaugas/.scripts/rofia")
        , ("M-r", spawn "/home/mindaugas/.scripts/screeny")
        , ("M-x", spawn "pcmanfm")

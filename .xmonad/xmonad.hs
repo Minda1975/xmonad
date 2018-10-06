@@ -63,22 +63,22 @@ import Graphics.X11.ExtraTypes.XF86
 myWorkspaces = ["1", "2", "3", "4", "5", "6", "7"]
 modm = mod4Mask
 
--- Nord Colors
-colorViolet       = "#89d0bA"
-colorGreen      = "#a3be8c"
-colorRed        = "#bf616a"
-colorGray       = "#b48ead"
-colorWhite      = "#d8dee8"
-colorNormalbg   = "#2f343f"
-colorfg = "#d8dee8"
+-- Zenburn Color Setting
+colorViolet       = "#1E2320"
+colorGreen      = "#709180"
+colorRed        = "#DBA3A2"
+colorGray       = "#DBA3A2"
+colorWhite      = "#F0DFAF"
+colorNormalbg   = "#3F3F3F"
+colorfg = "#DCDCCC"
 
 
 -- Border width
 borderwidth = 2
 
 -- Border color
-mynormalBorderColor  = "#2f343f"
-myfocusedBorderColor = "#e5e9f0"
+mynormalBorderColor  = "#3F3F3F"
+myfocusedBorderColor = "#F0DFAF"
 
 -- Float window control width
 moveWD = borderwidth
@@ -220,15 +220,15 @@ main = do
          ("M-<Return>", dwmpromote) 
        -- Screenshot
        , ("M-w", spawn "/home/mindaugas/.scripts/screenshot")
-       -- Launch IDE)
+       -- Launch simple file manager)
        , ("C-<Tab>", spawn "geany")
        -- Launch terminal
        , ("M-S-<Return>", spawn "urxvt")
-       -- Launch CLI file manager
+       -- Launch file manager
        , ("M-S-f", spawn "urxvt -e /usr/bin/ranger")
        -- Launch web browser
        , ("M-S-w", spawn "firefox")
-       -- Launch Rofi and other stuff
+       -- Launch dmenu for launching applicatiton
        , ("M-p", spawn "/home/mindaugas/.scripts/rofia")
        , ("M-r", spawn "/home/mindaugas/.scripts/screeny")
        , ("M-x", spawn "pcmanfm")
@@ -293,7 +293,7 @@ myWsBar = "xmobar $HOME/.xmonad/xmobarrc"
 wsPP = xmobarPP { ppOrder           = \(ws:l:t:_)  -> [ws,l,t]
                 , ppCurrent         = xmobarColor colorGreen     colorNormalbg . \s -> "●"
                 , ppUrgent          = xmobarColor colorRed    colorNormalbg . \s -> "●"
-                , ppVisible         = xmobarColor colorRed     colorNormalbg . \s -> "⦿"
+                , ppVisible         = xmobarColor colorGreen     colorNormalbg . \s -> "⦿"
                 , ppHidden          = xmobarColor colorViolet    colorNormalbg . \s -> "●"
                 , ppHiddenNoWindows = xmobarColor colorGray    colorNormalbg . \s -> "○"
                 , ppTitle           = xmobarColor colorGreen     colorNormalbg

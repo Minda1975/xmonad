@@ -26,10 +26,7 @@ Screenshots
 ![Screenshot](screen_1.png?raw=true "Notification")
 ![Screenshot](screen_2.png?raw=true "Rofi")
 ![Screenshot](screen_3.png?raw=true "Binclock")
-![Screenshot](screen_4.png?raw=true "Terms")
-![Screenshot](screen_5.png?raw=true "Apps")
-![Screenshot](screen_6.png?raw=true "Icons")
-![Screenshot](screen_7.png?raw=true "Etc")
+![Screenshot](screen_4.png?raw=true "Binclock")
 
 
                                                    LICENSE

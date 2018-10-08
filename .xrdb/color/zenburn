@@ -1,0 +1,37 @@
+*.cursorColor:     #705051
+*.cursorColor2:    #F0E0AF
+
+*.background: #3F3F3F
+*.foreground: #DCDCCC
+
+! Black + DarkGrey
+*.color0:     #3F3F3F
+*.color8:     #DBA3A2
+
+! DarkRed + Red
+*.color1:     #DBA3A2
+*.color9:     #DBA3A2
+
+! DarkGreen + Green
+*.color2:     #709180
+*.color10:    #709180
+
+! DarkYellow + Yellow
+*.color3:     #DFAF8F
+*.color11:    #F0DFAF
+
+! DarkBlue + Blue
+*.color4:     #1E2320
+*.color12:    #94BFF3
+
+! DarkMagenta + Magenta
+*.color5:     #DC8CC3
+*.color13:    #EC93D3
+
+! DarkCyan + Cyan
+*.color6:     #C4BF9F
+*.color14:    #84AAD9
+
+! LightGrey + White
+*.color7:     #DCDCCC
+*.color15:    #F0DFAF

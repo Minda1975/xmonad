@@ -11,7 +11,7 @@ All scripts are in ~/.scripts. Scripts are provided to do things like take scree
 
 P.S.
 
-My font is Fantasque Sans Mono Nerd Font. You can find it in .font dir. Also check these [Nerd-Fonts](https://github.com/ryanoasis/nerd-fonts) and get acquainted with the details.  It have 40+ patched fonts, over 3,600 glyph/icons, includes popular collections such as Font Awesome & fonts such as Hack. Worth to try it!
+My font is Liberation Mono. Also check these [Nerd-Fonts](https://github.com/ryanoasis/nerd-fonts) and get acquainted with the details.  It have 40+ patched fonts, over 3,600 glyph/icons, includes popular collections such as Font Awesome & fonts such as Hack. Worth to try it!
 
 My shell is zsh with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) framework.
 

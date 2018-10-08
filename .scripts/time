@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DATA=`date "+%d.%m"`
+DAY=`date "+%a"`
+TIME=`date "+%H:%M"`
+if [[ $DAY = "Št" ]]; then echo '<fc=#b58900>'$DAY'</fc>' \
+'<fc=#268bd2>'$DATA'</fc>'  '<fc=#268bd2>'$TIME'</fc>'
+elif [[ $DAY = "Sk" ]]; then echo '<fc=#b58900>'$DAY'</fc>' \
+'<fc=#268bd2>'$DATA'</fc>'  '<fc=#268bd2>'$TIME'</fc>'
+else echo '<fc=#268bd2>'$DAY'</fc>' '<fc=#268bd2>'$DATA'</fc>'  \
+'<fc=#268bd2>'$TIME'</fc>'
+fi
+exit 0

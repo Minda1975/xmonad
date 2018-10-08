@@ -64,21 +64,21 @@ myWorkspaces = ["1", "2", "3", "4", "5", "6", "7"]
 modm = mod4Mask
 
 -- Zenburn Color Setting
-colorViolet       = "#1E2320"
-colorGreen      = "#709180"
-colorRed        = "#DBA3A2"
-colorGray       = "#DBA3A2"
-colorWhite      = "#F0DFAF"
-colorNormalbg   = "#3F3F3F"
-colorfg = "#DCDCCC"
+colorViolet       = "#6c71c4"
+colorGreen      = "#859900"
+colorRed        = "#dc322f"
+colorGray       = "#839496"
+colorWhite      = "#002b36"
+colorNormalbg   = "#002b36"
+colorfg = "#657b83"
 
 
 -- Border width
 borderwidth = 2
 
 -- Border color
-mynormalBorderColor  = "#3F3F3F"
-myfocusedBorderColor = "#F0DFAF"
+mynormalBorderColor  = "#002b36"
+myfocusedBorderColor = "#b58900"
 
 -- Float window control width
 moveWD = borderwidth
@@ -306,7 +306,7 @@ wsPP = xmobarPP { ppOrder           = \(ws:l:t:_)  -> [ws,l,t]
 -- myXPConfig:        XPConfig                                            {{{
 
 myXPConfig = def
-                { font              = "xft:FantasqueSansMono Nerd Font:size=9:medium:antialias=true"
+                { font              = "xft:Liberation Mono:size=9:medium:antialias=true"
                 , fgColor           = colorfg
                 , bgColor           = colorNormalbg
                 , borderColor       = colorNormalbg

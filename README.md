@@ -27,6 +27,7 @@ Screenshots
 ![Screenshot](screen_2.png?raw=true "Rofi")
 ![Screenshot](screen_3.png?raw=true "Binclock")
 ![Screenshot](screen_4.png?raw=true "Binclock")
+![Screenshot](screen_5.png?raw=true "Cat")
 
 
                                                    LICENSE

@@ -28,6 +28,8 @@ Screenshots
 ![Screenshot](screen_3.png?raw=true "Binclock")
 ![Screenshot](screen_4.png?raw=true "Binclock")
 ![Screenshot](screen_5.png?raw=true "Cat")
+![Screenshot](screen_6.png?raw=true "Cat")
+![Screenshot](screen_7.png?raw=true "Cat")
 
 
                                                    LICENSE

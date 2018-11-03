@@ -7,7 +7,10 @@ What is Xmonad? It is a tiling window manager that is notoriously minimal, stabl
 
 All Xmonad configuration is in ~/.xmonad/xmonad.hs. This includes things like key bindings, colors, layouts, etc. You may need to have some basic understanding of Haskell in order to modify this file, but most people have no problems. Configuration file for xmobar is in ~/.xmonad. Xmobar is configured to show date and time, cpu usage, cpu temp, disk usage (root dir), disk activity, current keyboard layout and volume with nice bars (separate script).
 
-All scripts are in ~/.scripts. Scripts are provided to do things like take screenshots, (i use scrot, slop and viewnior) , mpd status in xmobar (gets the currently playing song from MPD) . 
+All scripts are in ~/.scripts. Scripts are provided to do things like take screenshots, (i use scrot, slop and viewnior) , mpd status in xmobar (gets the currently playing song from MPD) . Also i included scripts for capturing videos of your dektop (in .utility folder). So you don't need any external program. You just need ffmpeg and mkv codec, mostly autoinstalled when You have a multimedia player like Smplayer. To use this, just launch the sript <record.
+
+The video will be saved in ~/Videos/record.mkv. Rename it first before take another recording session 😉
+To stop recording, just navigate to script <stop-recording and launch it.
 
 P.S.
 

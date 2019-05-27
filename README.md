@@ -34,6 +34,7 @@ Screenshots
 ![Screenshot](screen_6.png?raw=true "Cat")
 ![Screenshot](screen_7.png?raw=true "Cat")
 
+![Please do not theme this app](https://stopthemingmy.app/badge.svg)
 
                                                    LICENSE
                                                     
